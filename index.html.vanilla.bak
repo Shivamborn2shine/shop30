@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VICE CITY — Export Surplus Brand, Boys & Girls Wear | Dehradun</title>
+    <meta name="description" content="VICE CITY: Export Surplus, International Brands Readymade Garments for boys & girls. Shop no. 30, Rajpur Road, Indira Market, Dehradun. 1-Tap Google Review & WhatsApp Assistant.">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Cinzel (Matching Vice City's 3D Gold Store Sign) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#090A0E',
+                        'obsidian-card': '#12131A',
+                        'obsidian-elevated': '#191B24',
+                        'obsidian-border': '#252736',
+                        'obsidian-border-light': '#36394C',
+                        'neon-violet': '#A855F7',
+                        'neon-violet-glow': 'rgba(168, 85, 247, 0.25)',
+                        'street-gold': '#D4AF37', // Metallic gold matching Vice City 3D sign
+                        'street-gold-light': '#F7E7A9',
+                        'street-gold-pale': 'rgba(212, 175, 55, 0.12)',
+                        'chrome-silver': '#E2E8F0',
+                        'muted-silver': '#94A3B8',
+                        'whatsapp-green': '#25D366'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['Cinzel', 'serif']
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px -4px rgba(212, 175, 55, 0.35)',
+                        'neon': '0 0 25px -5px rgba(168, 85, 247, 0.35)',
+                        'card': '0 10px 30px -10px rgba(0, 0, 0, 0.7)'
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #060709;
+            color: #F8F8FC;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Leather Grain Simulation */
+        .leather-texture {
+            background-color: #101015;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(25, 25, 35, 0.6) 0%, rgba(10, 10, 14, 0.95) 100%),
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 4px);
+        }
+
+        .leather-stitch-left {
+            border-right: 2px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .leather-stitch-right {
+            border-left: 2px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        /* Jacket 3D Flap Animations */
+        .jacket-flap-left {
+            transform-origin: left center;
+            transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+            will-change: transform, opacity;
+        }
+
+        .jacket-flap-right {
+            transform-origin: right center;
+            transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+            will-change: transform, opacity;
+        }
+
+        .jacket-unzipped-left {
+            transform: perspective(1200px) rotateY(-80deg) translateX(-100%);
+            opacity: 0.15;
+        }
+
+        .jacket-unzipped-right {
+            transform: perspective(1200px) rotateY(80deg) translateX(100%);
+            opacity: 0.15;
+        }
+
+        /* Zipper Pull Descent */
+        .zipper-pull-down {
+            transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(92vh);
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 24s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Breathing Skeleton Pulse */
+        @keyframes breathPulse {
+            0%, 100% { opacity: 0.45; transform: scale(0.995); }
+            50% { opacity: 0.85; transform: scale(1.005); }
+        }
+
+        .skeleton-breathing {
+            animation: breathPulse 1.8s ease-in-out infinite;
+        }
+
+        /* Pulsing Cursor */
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .cursor-blink {
+            animation: cursorBlink 0.8s infinite;
+        }
+
+        /* Rotating Medallion */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .animate-spin-slow {
+            animation: spinSlow 8s linear infinite;
+        }
+
+        /* Chip active states */
+        .is-active-chip {
+            background-color: #1A1A28 !important;
+            border-color: #D4AF37 !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 0 12px -2px rgba(212, 175, 55, 0.35);
+        }
+
+        .is-active-service {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.16), rgba(168, 85, 247, 0.12)) !important;
+            border-color: #D4AF37 !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 0 16px -4px rgba(212, 175, 55, 0.4);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-start antialiased selection:bg-street-gold selection:text-black">
+
+    <!-- ========================================================================= -->
+    <!-- 1. LEATHER JACKET ZIPPER OPENING ANIMATION OVERLAY                        -->
+    <!-- ========================================================================= -->
+    <div id="jacketIntroOverlay" class="fixed inset-0 z-[99999] bg-[#060709] flex items-center justify-center overflow-hidden transition-opacity duration-700 select-none">
+        <!-- Top Bar: Skip Intro Button -->
+        <div class="absolute top-5 right-5 z-50">
+            <button id="btnSkipJacketIntro" onclick="skipJacketIntro()" 
+                class="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white/90 hover:text-white text-xs font-semibold backdrop-blur-md border border-white/20 transition-all shadow-lg flex items-center gap-1.5 cursor-pointer">
+                <span>Skip Intro</span>
+                <span class="text-xs opacity-60">✕</span>
+            </button>
+        </div>
+
+        <!-- Jacket Container (Mobile Frame Dimensions) -->
+        <div id="jacketStage" class="relative w-full max-w-[480px] h-full flex items-center justify-center overflow-hidden" onclick="triggerJacketUnzip()">
+            
+            <!-- Underneath Glow / 3D Gold Vice City Teaser -->
+            <div id="jacketUnderglow" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 transition-opacity duration-500">
+                <div class="w-72 h-72 rounded-full bg-gradient-to-tr from-street-gold/30 via-amber-600/20 to-purple-600/20 blur-3xl"></div>
+                <div class="absolute text-center px-4">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest bg-street-gold/20 border border-street-gold/40 text-street-gold uppercase mb-2 inline-block">
+                        Entering Store
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-wider text-street-gold font-serif uppercase drop-shadow-lg">
+                        VICE CITY
+                    </h2>
+                    <p class="text-[11px] font-bold text-slate-300 tracking-wider mt-1 uppercase">
+                        Export Surplus • Indira Market
+                    </p>
+                </div>
+            </div>
+
+            <!-- Left Leather Jacket Panel -->
+            <div id="jacketLeftFlap" class="jacket-flap-left absolute top-0 bottom-0 left-0 w-1/2 leather-texture leather-stitch-left z-20 flex flex-col justify-between overflow-hidden shadow-2xl">
+                <!-- Biker Collar & Snap Studs -->
+                <div class="p-4 pt-10 flex flex-col items-end">
+                    <div class="w-14 h-16 border-b-2 border-l-2 border-white/20 rounded-bl-3xl bg-black/40 rotate-12 flex items-center justify-center shadow-inner">
+                        <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-street-gold to-amber-200 border border-black shadow"></div>
+                    </div>
+                    <!-- Pocket Zipper Mock -->
+                    <div class="w-20 h-1 bg-white/30 rounded mt-8 mr-2 rotate-[-15deg] shadow"></div>
+                </div>
+
+                <!-- Mid Seam Folds -->
+                <div class="px-4 opacity-30 space-y-6">
+                    <div class="h-24 border-r border-dashed border-white/10"></div>
+                </div>
+
+                <!-- Bottom Waist Hem -->
+                <div class="p-4 pb-8 flex items-center justify-between border-t border-white/10 bg-black/30">
+                    <div class="w-8 h-2 bg-white/20 rounded"></div>
+                    <div class="text-[10px] tracking-widest font-black text-street-gold/50 font-serif">VICE</div>
+                </div>
+            </div>
+
+            <!-- Right Leather Jacket Panel -->
+            <div id="jacketRightFlap" class="jacket-flap-right absolute top-0 bottom-0 right-0 w-1/2 leather-texture leather-stitch-right z-20 flex flex-col justify-between overflow-hidden shadow-2xl">
+                <!-- Biker Collar & Snap Studs -->
+                <div class="p-4 pt-10 flex flex-col items-start">
+                    <div class="w-14 h-16 border-b-2 border-r-2 border-white/20 rounded-br-3xl bg-black/40 -rotate-12 flex items-center justify-center shadow-inner">
+                        <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-street-gold to-amber-200 border border-black shadow"></div>
+                    </div>
+                    <!-- Chest Seam Mock -->
+                    <div class="w-16 h-1 bg-white/25 rounded mt-8 ml-2 rotate-[15deg] shadow"></div>
+                </div>
+
+                <!-- Mid Seam Folds -->
+                <div class="px-4 opacity-30 space-y-6">
+                    <div class="h-24 border-l border-dashed border-white/10"></div>
+                </div>
+
+                <!-- Bottom Waist Hem -->
+                <div class="p-4 pb-8 flex items-center justify-between border-t border-white/10 bg-black/30">
+                    <div class="text-[10px] tracking-widest font-black text-street-gold/50 font-serif">CITY</div>
+                    <div class="w-8 h-2 bg-white/20 rounded"></div>
+                </div>
+            </div>
+
+            <!-- Center Zipper Teeth Track -->
+            <div id="zipperTrack" class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-4 z-30 flex flex-col items-center pointer-events-none opacity-80">
+                <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 16 1000">
+                    <defs>
+                        <pattern id="zipperPattern" width="16" height="12" patternUnits="userSpaceOnUse">
+                            <rect x="2" y="1" width="5" height="4" rx="1" fill="#D4AF37" stroke="#856404" stroke-width="0.8"/>
+                            <rect x="9" y="7" width="5" height="4" rx="1" fill="#FFF" stroke="#856404" stroke-width="0.8"/>
+                            <line x1="8" y1="0" x2="8" y2="12" stroke="#101014" stroke-width="1.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="16" height="1000" fill="url(#zipperPattern)"/>
+                </svg>
+            </div>
+
+            <!-- Heavy Metallic Zipper Pull Tab -->
+            <div id="zipperSliderPull" class="absolute top-12 left-1/2 -translate-x-1/2 z-40 cursor-pointer flex flex-col items-center">
+                <div class="w-6 h-6 rounded-t-md bg-gradient-to-b from-street-gold-light via-street-gold to-amber-700 border border-amber-300 shadow-xl flex items-center justify-center">
+                    <div class="w-2.5 h-1 bg-black rounded-sm"></div>
+                </div>
+                <div class="w-5 h-12 -mt-1 rounded-b-lg bg-gradient-to-b from-amber-200 via-street-gold to-amber-800 border border-amber-300 shadow-2xl flex flex-col items-center justify-between py-1.5 active:scale-95 transition-transform">
+                    <div class="w-2 h-2 rounded-full bg-slate-900/60 shadow-inner"></div>
+                    <span class="text-[7px] font-black text-black tracking-tighter uppercase font-serif rotate-90 my-auto">VC</span>
+                    <div class="w-3 h-0.5 bg-amber-900 rounded"></div>
+                </div>
+            </div>
+
+            <!-- Tap Instruction Pill -->
+            <div id="jacketTapHint" class="absolute bottom-12 z-50 px-5 py-2.5 rounded-full bg-black/85 border border-street-gold/30 backdrop-blur-md text-white/90 text-xs font-semibold tracking-wide flex items-center gap-2 pointer-events-none animate-pulse shadow-2xl">
+                <svg class="w-4 h-4 text-street-gold animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+                <span>Pull down zipper or tap to enter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TOAST NOTIFICATION                                                        -->
+    <!-- ========================================================================= -->
+    <div id="toast" class="fixed top-5 z-[9999] max-w-sm px-5 py-3 rounded-2xl bg-obsidian-elevated/95 backdrop-blur-md text-white border border-street-gold/50 shadow-gold-glow text-xs font-bold flex items-center gap-2.5 transform -translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <span id="toastIcon" class="text-base">📋</span>
+        <span id="toastMessage">Review copied! Opening Google...</span>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- LIGHTBOX MODAL                                                            -->
+    <!-- ========================================================================= -->
+    <div id="imageLightbox" class="fixed inset-0 z-[9998] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300" onclick="closeLightbox()">
+        <button class="absolute top-5 right-5 text-white/80 hover:text-white text-2xl p-2 z-10 cursor-pointer">✕</button>
+        <div class="max-w-md w-full relative" onclick="event.stopPropagation()">
+            <img id="lightboxImage" src="" alt="Vice City Drop" class="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl border border-street-gold/20">
+            <p id="lightboxCaption" class="text-center text-xs text-slate-300 mt-3 font-medium"></p>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- STEP 1: INITIAL INTENT FOCUS MODAL                                       -->
+    <!-- ========================================================================= -->
+    <div id="entryFocusModal" class="fixed inset-0 z-[9000] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="w-full max-w-sm rounded-3xl bg-obsidian-card border border-obsidian-border p-6 shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-24 bg-street-gold/20 blur-2xl rounded-full pointer-events-none"></div>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-widest bg-street-gold/15 border border-street-gold/30 text-street-gold mb-3">
+                <span>📍</span> Indira Market • Dehradun
+            </span>
+
+            <h2 class="text-2xl font-black text-white tracking-tight font-serif mb-1">How Was Your Visit?</h2>
+            <p class="text-xs text-muted-silver mb-5">Tap what describes your time at Vice City today:</p>
+
+            <div class="space-y-3">
+                <!-- 1. I Bought Clothes -->
+                <button type="button" onclick="selectInitialIntent('BOUGHT')" 
+                    class="w-full p-4 rounded-2xl bg-obsidian-elevated hover:bg-[#202230] active:scale-[0.98] border border-obsidian-border hover:border-street-gold/60 transition-all flex items-center gap-3.5 text-left group shadow-sm cursor-pointer">
+                    <div class="w-11 h-11 rounded-xl bg-street-gold/15 border border-street-gold/30 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-105 transition-transform">
+                        🛍️
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-sm font-extrabold text-white flex items-center justify-between">
+                            <span>I Bought Clothes</span>
+                            <span class="text-street-gold text-xs opacity-0 group-hover:opacity-100 transition-opacity">➔</span>
+                        </div>
+                        <p class="text-[11px] text-muted-silver mt-0.5">Took home fresh export surplus garments</p>
+                    </div>
+                </button>
+
+                <!-- 2. Tried On Clothes -->
+                <button type="button" onclick="selectInitialIntent('TRIED_ON')" 
+                    class="w-full p-4 rounded-2xl bg-obsidian-elevated hover:bg-[#202230] active:scale-[0.98] border border-obsidian-border hover:border-neon-violet/60 transition-all flex items-center gap-3.5 text-left group shadow-sm cursor-pointer">
+                    <div class="w-11 h-11 rounded-xl bg-neon-violet/15 border border-neon-violet/30 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-105 transition-transform">
+                        🪞
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-sm font-extrabold text-white flex items-center justify-between">
+                            <span>Tried On Garments</span>
+                            <span class="text-neon-violet text-xs opacity-0 group-hover:opacity-100 transition-opacity">➔</span>
+                        </div>
+                        <p class="text-[11px] text-muted-silver mt-0.5">Tested fits, sizes & mirror styles</p>
+                    </div>
+                </button>
+
+                <!-- 3. Just Browsed / Exploring -->
+                <button type="button" onclick="selectInitialIntent('BROWSED')" 
+                    class="w-full p-4 rounded-2xl bg-obsidian-elevated hover:bg-[#202230] active:scale-[0.98] border border-obsidian-border hover:border-white/40 transition-all flex items-center gap-3.5 text-left group shadow-sm cursor-pointer">
+                    <div class="w-11 h-11 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-105 transition-transform">
+                        👀
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-sm font-extrabold text-white flex items-center justify-between">
+                            <span>Just Browsing & Checking Drops</span>
+                            <span class="text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity">➔</span>
+                        </div>
+                        <p class="text-[11px] text-muted-silver mt-0.5">Checked international brands & store vibe</p>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Direct Skip Option -->
+            <div class="mt-5 pt-4 border-t border-obsidian-border flex flex-col items-center gap-2">
+                <button type="button" onclick="skipDirectToGoogleReview()" 
+                    class="text-xs font-bold text-street-gold hover:text-white transition-colors flex items-center gap-1 cursor-pointer">
+                    <span>Already know what to write? Skip to Google</span>
+                    <span>⭐ ➔</span>
+                </button>
+                <button type="button" onclick="closeFocusModalAndExplore()" 
+                    class="text-[11px] text-muted-silver hover:text-white transition-colors cursor-pointer mt-1">
+                    Just browse store page without review
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- STEP 2: APPAREL MULTI-SELECT MODAL                                       -->
+    <!-- ========================================================================= -->
+    <div id="entryServiceModal" class="fixed inset-0 z-[9000] bg-black/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="w-full max-w-md max-h-[90vh] rounded-t-3xl sm:rounded-3xl bg-obsidian-card border border-obsidian-border flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-bottom-6 duration-300">
+            <!-- Modal Header -->
+            <div class="p-5 pb-3 border-b border-obsidian-border flex items-center justify-between bg-obsidian-elevated/50 flex-shrink-0">
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="returnToInitialIntentModal()" 
+                        class="w-8 h-8 rounded-full bg-obsidian-card hover:bg-white/10 border border-obsidian-border flex items-center justify-center text-xs text-white transition-all cursor-pointer">
+                        ←
+                    </button>
+                    <div>
+                        <h3 id="modalContextHeading" class="text-base font-extrabold text-white">What did you pick up? 🛍️</h3>
+                        <p class="text-[11px] text-muted-silver">Tap all that apply — multi-select enabled</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeApparelModal()" class="w-8 h-8 rounded-full bg-obsidian-card hover:bg-white/10 border border-obsidian-border flex items-center justify-center text-xs text-muted-silver hover:text-white transition-all cursor-pointer">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Modal Search with Typewriter Placeholder -->
+            <div class="p-4 pb-2 flex-shrink-0">
+                <div class="relative flex items-center">
+                    <span class="absolute left-3.5 text-muted-silver text-xs">🔍</span>
+                    <input type="text" id="modalServiceSearchInput" 
+                        placeholder="Search garment (e.g. Leather Jacket...)" 
+                        class="w-full pl-9 pr-10 py-2.5 rounded-xl bg-obsidian-elevated border border-obsidian-border text-white text-xs placeholder:text-muted-silver focus:outline-none focus:border-street-gold transition-all">
+                    <button type="button" onclick="addCustomServiceFromSearch()" 
+                        class="absolute right-2.5 w-6 h-6 rounded-lg bg-street-gold hover:bg-amber-500 text-black text-xs font-black flex items-center justify-center transition-all cursor-pointer shadow">
+                        ➔
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Selected Items Tray -->
+            <div id="modalSelectedTray" class="px-4 py-1.5 flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-shrink-0 border-b border-obsidian-border/50 hidden">
+                <span class="text-[10px] font-bold text-muted-silver uppercase whitespace-nowrap">Selected:</span>
+                <div id="modalSelectedPillsContainer" class="flex items-center gap-1.5"></div>
+                <button type="button" onclick="clearAllSelectedServices()" class="text-[10px] text-red-400 hover:text-red-300 font-bold underline ml-1 whitespace-nowrap cursor-pointer">
+                    Clear
+                </button>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="px-4 py-2 flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-shrink-0">
+                <button type="button" onclick="filterModalCategory('ALL')" class="category-filter-btn active-cat px-3 py-1 rounded-full text-xs font-bold bg-street-gold text-black border border-street-gold transition-all whitespace-nowrap cursor-pointer">All</button>
+                <button type="button" onclick="filterModalCategory('OUTERWEAR')" class="category-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-obsidian-elevated text-muted-silver hover:text-white border border-obsidian-border transition-all whitespace-nowrap cursor-pointer">🧥 Outerwear & Jackets</button>
+                <button type="button" onclick="filterModalCategory('TOPS')" class="category-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-obsidian-elevated text-muted-silver hover:text-white border border-obsidian-border transition-all whitespace-nowrap cursor-pointer">👕 Tops & Sweatshirts</button>
+                <button type="button" onclick="filterModalCategory('BOTTOMS')" class="category-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-obsidian-elevated text-muted-silver hover:text-white border border-obsidian-border transition-all whitespace-nowrap cursor-pointer">👖 Denims & Cargos</button>
+                <button type="button" onclick="filterModalCategory('GIRLS')" class="category-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-obsidian-elevated text-muted-silver hover:text-white border border-obsidian-border transition-all whitespace-nowrap cursor-pointer">✨ Girls Wear</button>
+            </div>
+
+            <!-- Scrollable Apparel Chips Grid -->
+            <div id="modalPlentyChipsGrid" class="p-4 pt-1 overflow-y-auto flex-1 max-h-[46vh] space-y-2">
+                <!-- Dynamically populated from APPAREL_CATALOG -->
+            </div>
+
+            <!-- Modal Footer with Dynamic Continue Button -->
+            <div class="p-4 border-t border-obsidian-border bg-obsidian-elevated/70 flex items-center justify-between gap-3 flex-shrink-0">
+                <button type="button" onclick="closeFocusModalAndExplore()" class="text-xs text-muted-silver hover:text-white underline cursor-pointer">
+                    Skip review
+                </button>
+                <button type="button" id="btnModalConfirmContinue" onclick="confirmServicesAndCuratePage()" 
+                    class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-street-gold via-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 active:scale-95 text-black text-xs font-black shadow-gold-glow transition-all flex items-center gap-1.5 cursor-pointer">
+                    <span id="btnModalContinueText">Continue ➔</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- STEP 3: CURATION TRANSITION LOADER                                        -->
+    <!-- ========================================================================= -->
+    <div id="viceCuratingLoader" class="fixed inset-0 z-[9500] bg-black/90 backdrop-blur-md flex flex-col items-center justify-center p-6 transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="w-full max-w-xs text-center flex flex-col items-center">
+            <div class="relative w-20 h-20 mb-4 flex items-center justify-center">
+                <div class="absolute inset-0 rounded-full border-2 border-dashed border-street-gold animate-spin-slow"></div>
+                <div class="w-14 h-14 rounded-2xl bg-obsidian-elevated border border-street-gold/60 shadow-gold-glow flex items-center justify-center text-2xl">
+                    🧥
+                </div>
+            </div>
+
+            <h3 class="text-lg font-black text-white tracking-wide font-serif mb-1">Styling Your Review</h3>
+            <p id="curatingLoaderDynamicText" class="text-xs text-street-gold font-medium animate-pulse">Curating highlights for your selection...</p>
+
+            <div class="w-full mt-6 p-3.5 rounded-2xl bg-obsidian-card border border-obsidian-border skeleton-breathing space-y-2">
+                <div class="h-3 bg-white/10 rounded w-2/3 mx-auto"></div>
+                <div class="h-2.5 bg-white/5 rounded w-5/6 mx-auto"></div>
+                <div class="flex justify-center gap-1.5 pt-1">
+                    <div class="h-5 w-16 bg-street-gold/20 rounded-full"></div>
+                    <div class="h-5 w-20 bg-neon-violet/20 rounded-full"></div>
+                    <div class="h-5 w-14 bg-white/10 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MAIN MOBILE-FIRST CONTAINER (360px - 480px width)                         -->
+    <!-- ========================================================================= -->
+    <div id="appContainer" class="w-full max-w-[480px] min-h-screen bg-obsidian border-x border-obsidian-border flex flex-col relative pb-20 shadow-2xl">
+
+        <!-- BRAND TOP HEADER -->
+        <header class="sticky top-0 z-40 px-4 py-3 bg-obsidian/90 backdrop-blur-md border-b border-obsidian-border flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-street-gold to-amber-700 border border-street-gold/40 flex items-center justify-center text-black font-serif font-black text-sm shadow-gold-glow">
+                    VC
+                </div>
+                <div>
+                    <h1 class="text-sm font-black tracking-wider text-street-gold font-serif uppercase leading-none">VICE CITY</h1>
+                    <span class="text-[10px] text-muted-silver tracking-tight">Export Surplus • Indira Market, Dehradun</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-1.5">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-street-gold/15 border border-street-gold/30 text-street-gold">
+                    <span>★</span> 4.9 (250+ Reviews)
+                </span>
+            </div>
+        </header>
+
+        <!-- HERO STOREFRONT BANNER (Featuring Real Storefront) -->
+        <div class="relative px-4 pt-4">
+            <div class="relative w-full h-64 sm:h-72 rounded-3xl overflow-hidden border border-street-gold/30 shadow-card group">
+                <img id="heroStorefrontImg" src="./assets/images/ViceCity/00_Storefront_Entrance.jpg" alt="Vice City Storefront Indira Market" 
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 cursor-pointer"
+                    onclick="openLightbox('./assets/images/ViceCity/00_Storefront_Entrance.jpg', 'Vice City Storefront — Shop no. 30, Indira Market, Dehradun')">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+
+                <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                    <div>
+                        <span class="px-2.5 py-1 rounded-lg bg-street-gold text-black text-[10px] font-black uppercase tracking-widest mb-1.5 inline-block shadow">
+                            Export Surplus Brand
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight font-serif drop-shadow-md">
+                            BOYS & GIRLS WEAR<br><span class="text-street-gold">INTERNATIONAL BRANDS</span>
+                        </h2>
+                    </div>
+                    <div class="text-right flex-shrink-0">
+                        <span class="text-[10px] font-semibold text-slate-300 block">Indira Market</span>
+                        <span class="text-xs font-bold text-street-gold">Open 10 AM – 9 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUICK ACTION BAR (4 Touchpoints) -->
+        <div class="px-4 mt-3 grid grid-cols-4 gap-2">
+            <!-- 1. WhatsApp Chat -->
+            <a href="https://wa.me/919760441031?text=Hi%20Vice%20City%2C%20I%20visited%20your%20Indira%20Market%20store%20and%20want%20to%20inquire%20about%20current%20garment%20stock!" 
+                target="_blank" rel="noopener"
+                class="flex flex-col items-center justify-center p-2 rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border border-obsidian-border hover:border-whatsapp-green/50 transition-all group shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-whatsapp-green/15 border border-whatsapp-green/30 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+                    <span class="text-lg">💬</span>
+                </div>
+                <span class="text-[11px] font-bold text-white leading-tight">WhatsApp</span>
+            </a>
+
+            <!-- 2. Call Store -->
+            <a href="tel:+919760441031" 
+                class="flex flex-col items-center justify-center p-2 rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border border-obsidian-border hover:border-white/30 transition-all group shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform text-white">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </div>
+                <span class="text-[11px] font-bold text-white leading-tight">Call Shop</span>
+            </a>
+
+            <!-- 3. Google Maps Direct -->
+            <a href="https://www.google.com/maps?cid=5001663107305836739" target="_blank" rel="noopener"
+                class="flex flex-col items-center justify-center p-2 rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border border-obsidian-border hover:border-street-gold/50 transition-all group shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-street-gold/15 border border-street-gold/30 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform text-street-gold">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <span class="text-[11px] font-bold text-white leading-tight">Directions</span>
+            </a>
+
+            <!-- 4. Review Us -->
+            <button type="button" onclick="skipDirectToGoogleReview()"
+                class="flex flex-col items-center justify-center p-2 rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border border-obsidian-border hover:border-street-gold/50 transition-all group cursor-pointer shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-street-gold/20 border border-street-gold/40 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform text-street-gold">
+                    <span class="text-base font-black">★</span>
+                </div>
+                <span class="text-[11px] font-bold text-street-gold leading-tight">Review</span>
+            </button>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- WHATSAPP CATALOGUE SHOWCASE (Coming Soon Space + Direct Chat Fallback)     -->
+        <!-- ========================================================================= -->
+        <div id="whatsAppInquiryBox" class="mx-4 mt-4 p-4 rounded-3xl bg-gradient-to-br from-[#0E1A14] via-obsidian-card to-obsidian border border-whatsapp-green/40 shadow-card">
+            <div class="flex items-center justify-between mb-2.5">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-whatsapp-green animate-pulse"></span>
+                    <span class="text-xs font-black tracking-wider text-emerald-400 uppercase">Shop on WhatsApp</span>
+                    <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-street-gold/20 text-street-gold border border-street-gold/40">
+                        Catalogue Coming Soon ⏳
+                    </span>
+                </div>
+            </div>
+
+            <p class="text-[11px] text-slate-300 mb-3 leading-relaxed">
+                Our digital WhatsApp catalogue is being curated! In the meantime, chat directly with our Indira Market store team to check availability, sizes, or reserve garments:
+            </p>
+
+            <!-- Quick Inquiry Buttons to Verified Shop Number: 97604 41031 -->
+            <div class="grid grid-cols-2 gap-2 text-xs">
+                <button type="button" onclick="sendWhatsAppInquiry('Leather & Winter Jackets Availability')" 
+                    class="py-2 px-2.5 rounded-xl bg-obsidian-elevated hover:bg-black text-slate-200 text-left font-bold border border-whatsapp-green/20 hover:border-whatsapp-green/50 flex items-center justify-between transition-all cursor-pointer">
+                    <span>🧥 Winter Jackets</span>
+                    <span class="text-whatsapp-green text-xs">➔</span>
+                </button>
+                <button type="button" onclick="sendWhatsAppInquiry('Export Surplus Tees & Sweatshirts')" 
+                    class="py-2 px-2.5 rounded-xl bg-obsidian-elevated hover:bg-black text-slate-200 text-left font-bold border border-whatsapp-green/20 hover:border-whatsapp-green/50 flex items-center justify-between transition-all cursor-pointer">
+                    <span>👕 Branded Tees</span>
+                    <span class="text-whatsapp-green text-xs">➔</span>
+                </button>
+                <button type="button" onclick="sendWhatsAppInquiry('International Brand Jeans & Cargos')" 
+                    class="py-2 px-2.5 rounded-xl bg-obsidian-elevated hover:bg-black text-slate-200 text-left font-bold border border-whatsapp-green/20 hover:border-whatsapp-green/50 flex items-center justify-between transition-all cursor-pointer">
+                    <span>👖 Denims & Cargos</span>
+                    <span class="text-whatsapp-green text-xs">➔</span>
+                </button>
+                <button type="button" onclick="sendWhatsAppInquiry('Boys & Girls Wear Size Inquiries')" 
+                    class="py-2 px-2.5 rounded-xl bg-obsidian-elevated hover:bg-black text-slate-200 text-left font-bold border border-whatsapp-green/20 hover:border-whatsapp-green/50 flex items-center justify-between transition-all cursor-pointer">
+                    <span>✨ Check Available Sizes</span>
+                    <span class="text-whatsapp-green text-xs">➔</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- ADAPTIVE REVIEW ENGINE (#aiSection)                                      -->
+        <!-- ========================================================================= -->
+        <div id="aiSection" class="mx-4 mt-5 p-4 sm:p-5 rounded-3xl bg-obsidian-card border border-obsidian-border shadow-card scroll-mt-20">
+            
+            <div class="flex items-center justify-between pb-3.5 border-b border-obsidian-border mb-4">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-street-gold/15 border border-street-gold/30 flex items-center justify-center text-street-gold text-base shadow">
+                        ★
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-extrabold text-white">How Was Your Experience?</h3>
+                        <p class="text-[11px] text-muted-silver">Tap highlights from your visit — zero typing needed</p>
+                    </div>
+                </div>
+                <button type="button" onclick="skipDirectToGoogleReview()" 
+                    class="px-2.5 py-1 rounded-lg bg-obsidian-elevated hover:bg-white/10 text-[10px] font-bold text-street-gold border border-street-gold/30 flex items-center gap-1 transition-all cursor-pointer">
+                    <span>Direct ⭐</span>
+                </button>
+            </div>
+
+            <!-- Confirmed Items Bar (Never Ask Again) -->
+            <div id="confirmedServicesBar" class="p-3 rounded-2xl bg-obsidian-elevated border border-obsidian-border mb-4 flex items-center justify-between gap-2">
+                <div class="flex-1 min-w-0">
+                    <div class="text-[10px] font-extrabold uppercase tracking-wider text-muted-silver mb-1">Your Visit Details:</div>
+                    <div id="confirmedPillsContainer" class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-street-gold/20 text-street-gold border border-street-gold/30">✓ Leather Biker Jacket</span>
+                    </div>
+                </div>
+                <button type="button" onclick="openApparelModal()" 
+                    class="px-2.5 py-1 rounded-xl bg-obsidian-card hover:bg-white/10 text-xs font-bold text-white border border-obsidian-border hover:border-white/30 transition-all flex items-center gap-1 flex-shrink-0 cursor-pointer">
+                    <span>✏️ Edit</span>
+                </button>
+            </div>
+
+            <!-- Optional Customer Notes Textarea -->
+            <div class="mb-4">
+                <div class="flex items-center justify-between mb-1.5">
+                    <label for="reviewCustomerNotes" class="text-xs font-bold text-slate-300">
+                        ✍️ Your own thoughts <span class="text-[10px] text-muted-silver font-normal">(optional)</span>
+                    </label>
+                    <span id="reviewCustomerNotesCount" class="text-[10px] text-muted-silver font-medium">0 words</span>
+                </div>
+                <textarea id="reviewCustomerNotes" rows="2" 
+                    placeholder="e.g. Loved the jacket quality and friendly dealing, great prices..." 
+                    class="w-full p-3 rounded-xl bg-obsidian-elevated border border-obsidian-border text-white text-xs placeholder:text-muted-silver/60 focus:outline-none focus:border-street-gold transition-all resize-none"></textarea>
+            </div>
+
+            <!-- Dynamic Grouped Highlights Container -->
+            <div id="dynamicGroupedHighlightsContainer" class="space-y-3.5 mb-4">
+                <!-- Populated dynamically based on confirmed garments + universal store experience -->
+            </div>
+
+            <!-- Length & Language Selectors -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 p-3 rounded-2xl bg-obsidian-elevated border border-obsidian-border mb-4">
+                <!-- Length -->
+                <div class="flex items-center justify-between sm:justify-start gap-2">
+                    <span class="text-[11px] font-bold text-muted-silver">Length:</span>
+                    <div class="flex items-center p-0.5 rounded-xl bg-obsidian-card border border-obsidian-border text-[11px] font-bold">
+                        <button type="button" onclick="setReviewLength('SHORT')" id="lenBtn-SHORT" class="px-2.5 py-1 rounded-lg bg-street-gold text-black font-extrabold transition-all cursor-pointer">Short</button>
+                        <button type="button" onclick="setReviewLength('BALANCED')" id="lenBtn-BALANCED" class="px-2.5 py-1 rounded-lg text-muted-silver hover:text-white transition-all cursor-pointer">Balanced</button>
+                        <button type="button" onclick="setReviewLength('DETAILED')" id="lenBtn-DETAILED" class="px-2.5 py-1 rounded-lg text-muted-silver hover:text-white transition-all cursor-pointer">Detailed</button>
+                    </div>
+                </div>
+
+                <!-- Language -->
+                <div class="flex items-center justify-between sm:justify-end gap-2">
+                    <span class="text-[11px] font-bold text-muted-silver">Language:</span>
+                    <div class="flex items-center p-0.5 rounded-xl bg-obsidian-card border border-obsidian-border text-[11px] font-bold">
+                        <button type="button" onclick="setReviewLanguage('ENGLISH')" id="langBtn-ENGLISH" class="px-2.5 py-1 rounded-lg bg-street-gold text-black font-extrabold transition-all cursor-pointer">English</button>
+                        <button type="button" onclick="setReviewLanguage('HINGLISH')" id="langBtn-HINGLISH" class="px-2.5 py-1 rounded-lg text-muted-silver hover:text-white transition-all cursor-pointer">Hinglish</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Me Write Review Button -->
+            <button type="button" id="btnHelpMeWrite" onclick="generateAndScrollToReview()" 
+                class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-street-gold via-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 active:scale-[0.99] text-black text-xs font-black tracking-wide uppercase shadow-gold-glow transition-all flex items-center justify-center gap-2 cursor-pointer mb-4">
+                <span>✨</span>
+                <span>Help Me Write Review ➔</span>
+            </button>
+
+            <!-- Review Draft Card (#reviewOutputCard) -->
+            <div id="reviewOutputCard" class="p-4 rounded-2xl bg-gradient-to-b from-obsidian-elevated to-obsidian-card border border-street-gold/40 shadow-gold-glow transition-all duration-300 scroll-mt-24">
+                <div class="flex items-center justify-between pb-2.5 border-b border-obsidian-border mb-3">
+                    <div class="flex items-center gap-2">
+                        <span class="text-street-gold text-sm">✦</span>
+                        <span class="text-xs font-extrabold text-white">Your Review Draft</span>
+                    </div>
+                    <button type="button" onclick="regenerateReviewDraft()" 
+                        class="px-2.5 py-1 rounded-lg bg-obsidian-card hover:bg-white/10 text-xs font-bold text-slate-200 border border-obsidian-border flex items-center gap-1 transition-all cursor-pointer">
+                        <span>🔄 Rephrase</span>
+                    </button>
+                </div>
+
+                <!-- Text Display with animated Typewriter -->
+                <div class="min-h-[60px] flex items-start mb-3.5">
+                    <p id="aiReviewDisplay" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+                        <!-- Populated by AI synthesis -->
+                    </p>
+                    <span id="aiCursor" class="inline-block w-1.5 h-4 bg-street-gold ml-0.5 cursor-blink"></span>
+                </div>
+
+                <!-- Google Launch Button (Popup-Blocker Proof) -->
+                <button type="button" onclick="copyAndRedirectReview()" 
+                    class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-white via-slate-100 to-slate-200 hover:from-white hover:to-white active:scale-[0.98] text-slate-950 font-black text-xs shadow-lg transition-all flex items-center justify-between gap-2 cursor-pointer">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                        </svg>
+                        <span class="text-left font-black tracking-tight">Copy & Open Google Review Page</span>
+                    </div>
+                    <span class="text-slate-900 text-xs font-bold">➔</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- SIGNATURE DROPS GRID (Real Vice City In-Store Photos)                     -->
+        <!-- ========================================================================= -->
+        <div class="px-4 mt-6">
+            <div class="flex items-center justify-between mb-3">
+                <div>
+                    <h3 class="text-sm font-black text-white uppercase tracking-wider font-serif">Featured In-Store Drops</h3>
+                    <p class="text-[11px] text-muted-silver">Real garment pieces available at Indira Market</p>
+                </div>
+                <span class="text-[10px] text-street-gold font-bold">Export Surplus</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3" id="coreDropsGrid">
+                <!-- Drop 1: Monogram Puffer Jacket -->
+                <div class="rounded-2xl bg-obsidian-card border border-obsidian-border p-2.5 flex flex-col group hover:border-street-gold/50 transition-all cursor-pointer"
+                    onclick="openLightbox('./assets/images/ViceCity/08_Brown_Monogram_Puffer.jpg', 'Brown Monogram Puffer Jacket — International Brand Export Surplus')">
+                    <div class="w-full h-36 rounded-xl bg-obsidian-elevated overflow-hidden mb-2 relative">
+                        <img src="./assets/images/ViceCity/08_Brown_Monogram_Puffer.jpg" alt="Monogram Puffer Jacket" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-sm text-[9px] font-black text-street-gold uppercase">Monogram Puffer</span>
+                    </div>
+                    <h4 class="text-xs font-black text-white">Designer Puffer Jacket</h4>
+                    <p class="text-[10px] text-muted-silver mt-0.5 line-clamp-1">Warm winter fill & luxury finish</p>
+                </div>
+
+                <!-- Drop 2: Distressed Zip Jacket -->
+                <div class="rounded-2xl bg-obsidian-card border border-obsidian-border p-2.5 flex flex-col group hover:border-street-gold/50 transition-all cursor-pointer"
+                    onclick="openLightbox('./assets/images/ViceCity/07_Grey_Distressed_Zip_Jacket.jpg', 'Grey Distressed Heavy Zip Jacket — Street Outerwear')">
+                    <div class="w-full h-36 rounded-xl bg-obsidian-elevated overflow-hidden mb-2 relative">
+                        <img src="./assets/images/ViceCity/07_Grey_Distressed_Zip_Jacket.jpg" alt="Distressed Zip Jacket" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-sm text-[9px] font-black text-chrome-silver uppercase">Distressed Zip</span>
+                    </div>
+                    <h4 class="text-xs font-black text-white">Grey Distressed Jacket</h4>
+                    <p class="text-[10px] text-muted-silver mt-0.5 line-clamp-1">Heavy zipper & acid wash tone</p>
+                </div>
+
+                <!-- Drop 3: Corduroy Overshirt & Tee -->
+                <div class="rounded-2xl bg-obsidian-card border border-obsidian-border p-2.5 flex flex-col group hover:border-street-gold/50 transition-all cursor-pointer"
+                    onclick="openLightbox('./assets/images/ViceCity/05_White_Corduroy_Overshirt_Pink_Tee.jpg', 'Corduroy Overshirt & Layered Street Tee Combo')">
+                    <div class="w-full h-36 rounded-xl bg-obsidian-elevated overflow-hidden mb-2 relative">
+                        <img src="./assets/images/ViceCity/05_White_Corduroy_Overshirt_Pink_Tee.jpg" alt="Corduroy Overshirt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-sm text-[9px] font-black text-amber-300 uppercase">Corduroy</span>
+                    </div>
+                    <h4 class="text-xs font-black text-white">White Corduroy Shacket</h4>
+                    <p class="text-[10px] text-muted-silver mt-0.5 line-clamp-1">Textured overshirt for boys/girls</p>
+                </div>
+
+                <!-- Drop 4: Pink Graphic Sweatshirt -->
+                <div class="rounded-2xl bg-obsidian-card border border-obsidian-border p-2.5 flex flex-col group hover:border-street-gold/50 transition-all cursor-pointer"
+                    onclick="openLightbox('./assets/images/ViceCity/04_Pink_Graphic_Sweatshirt.jpg', 'Pink Graphic Sweatshirt — Boys & Girls Casual Streetwear')">
+                    <div class="w-full h-36 rounded-xl bg-obsidian-elevated overflow-hidden mb-2 relative">
+                        <img src="./assets/images/ViceCity/04_Pink_Graphic_Sweatshirt.jpg" alt="Pink Graphic Sweatshirt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-sm text-[9px] font-black text-pink-400 uppercase">Graphic Sweat</span>
+                    </div>
+                    <h4 class="text-xs font-black text-white">Graphic Street Crewneck</h4>
+                    <p class="text-[10px] text-muted-silver mt-0.5 line-clamp-1">Heavy fleece cotton & drop shoulder</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- PHOTO GALLERY (Real Storefront & Garment Wall)                           -->
+        <!-- ========================================================================= -->
+        <div class="px-4 mt-6">
+            <div class="flex items-center justify-between mb-3">
+                <div>
+                    <h3 class="text-sm font-black text-white uppercase tracking-wider font-serif">In-Store Gallery</h3>
+                    <p class="text-[11px] text-muted-silver">Tap to zoom and view collection details</p>
+                </div>
+                <span class="text-xs text-street-gold font-bold">10+ Photos</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2">
+                <div class="h-28 rounded-xl overflow-hidden bg-obsidian-elevated border border-obsidian-border cursor-pointer group"
+                    onclick="openLightbox('./assets/images/ViceCity/01_Store_Interior_Staircase.jpg', 'Store Interior & Multi-Floor Layout')">
+                    <img src="./assets/images/ViceCity/01_Store_Interior_Staircase.jpg" alt="Store Interior" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="h-28 rounded-xl overflow-hidden bg-obsidian-elevated border border-obsidian-border cursor-pointer group"
+                    onclick="openLightbox('./assets/images/ViceCity/02_Outerwear_Display.jpg', 'Outerwear & Fleece Jacket Racks')">
+                    <img src="./assets/images/ViceCity/02_Outerwear_Display.jpg" alt="Outerwear Display" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="h-28 rounded-xl overflow-hidden bg-obsidian-elevated border border-obsidian-border cursor-pointer group"
+                    onclick="openLightbox('./assets/images/ViceCity/03_Black_Zip_Jacket_Mannequin.jpg', 'Black Zip Biker Jacket on Mannequin')">
+                    <img src="./assets/images/ViceCity/03_Black_Zip_Jacket_Mannequin.jpg" alt="Black Jacket Mannequin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="h-28 rounded-xl overflow-hidden bg-obsidian-elevated border border-obsidian-border cursor-pointer group"
+                    onclick="openLightbox('./assets/images/ViceCity/06_Corduroy_Outfit_Closeup.jpg', 'Corduroy Stitching & Texture Details')">
+                    <img src="./assets/images/ViceCity/06_Corduroy_Outfit_Closeup.jpg" alt="Corduroy Closeup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="h-28 rounded-xl overflow-hidden bg-obsidian-elevated border border-obsidian-border cursor-pointer group"
+                    onclick="openLightbox('./assets/images/ViceCity/09_Store_Outerwear_Wall.jpg', 'Curated Winter Outerwear Wall')">
+                    <img src="./assets/images/ViceCity/09_Store_Outerwear_Wall.jpg" alt="Outerwear Wall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="h-28 rounded-xl overflow-hidden bg-obsidian-elevated border border-obsidian-border cursor-pointer group"
+                    onclick="openLightbox('./assets/images/ViceCity/10_Brown_Toggle_Closure_Jacket.jpg', 'Brown Toggle Closure Winter Jacket')">
+                    <img src="./assets/images/ViceCity/10_Brown_Toggle_Closure_Jacket.jpg" alt="Toggle Jacket" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- VERIFIED TESTIMONIALS MARQUEE                                             -->
+        <!-- ========================================================================= -->
+        <div class="mt-8 overflow-hidden">
+            <div class="px-4 mb-3 flex items-center justify-between">
+                <div>
+                    <h3 class="text-sm font-black text-white uppercase tracking-wider font-serif">What Shoppers Say</h3>
+                    <p class="text-[11px] text-muted-silver">Verified reviews from Indira Market shoppers</p>
+                </div>
+                <span class="text-xs text-street-gold font-bold">★ 4.9 / 5.0</span>
+            </div>
+
+            <div class="relative w-full overflow-hidden py-1">
+                <div id="testimonialsMarquee" class="animate-marquee flex gap-3">
+                    <!-- Populated dynamically from TESTIMONIALS array -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- STORE LOCATION & VISITING HOURS (Exact Details)                           -->
+        <!-- ========================================================================= -->
+        <div class="px-4 mt-8">
+            <div class="p-4 rounded-3xl bg-obsidian-card border border-street-gold/30">
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-street-gold/15 border border-street-gold/30 flex items-center justify-center text-street-gold text-lg flex-shrink-0">
+                        📍
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-xs font-black text-white uppercase tracking-wider">VICE CITY Storefront</h4>
+                        <p class="text-[11px] text-slate-300 mt-1 leading-relaxed">
+                            Shop no. 30, Rajpur Road, Indira Market, Dehradun, Uttarakhand 248001
+                        </p>
+                        <p class="text-[11px] text-street-gold mt-1 font-semibold">
+                            Phone: 97604 41031
+                        </p>
+                        <div class="mt-2.5 flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded-md bg-white/10 text-[10px] font-bold text-white">Open: 10 AM - 9 PM</span>
+                            <a href="https://www.google.com/maps?cid=5001663107305836739" target="_blank" rel="noopener" class="text-[10px] font-bold text-street-gold hover:underline">
+                                Open in Google Maps ➔
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- INTERACTIVE FAQ ACCORDION                                                 -->
+        <!-- ========================================================================= -->
+        <div class="px-4 mt-6">
+            <h3 class="text-sm font-black text-white uppercase tracking-wider font-serif mb-3">Frequently Asked</h3>
+            <div class="space-y-2" id="faqContainer">
+                <!-- Populated dynamically from FAQS -->
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="mt-10 px-4 pt-6 border-t border-obsidian-border text-center space-y-3">
+            <div class="w-8 h-8 rounded-xl bg-street-gold/20 border border-street-gold/40 mx-auto flex items-center justify-center text-street-gold font-serif font-black text-xs">
+                VC
+            </div>
+            <p class="text-xs font-bold text-street-gold uppercase font-serif tracking-widest">VICE CITY • DEHRADUN</p>
+            <p class="text-[10px] text-muted-silver max-w-xs mx-auto">
+                Export Surplus, International Brands Readymade Garments for boys & girls.
+            </p>
+            
+            <div class="pt-2">
+                <button type="button" onclick="replayJacketIntro()" 
+                    class="px-3 py-1 rounded-full bg-obsidian-elevated hover:bg-white/10 text-[10px] font-bold text-muted-silver hover:text-white border border-obsidian-border transition-all cursor-pointer">
+                    ⚡ Replay Jacket Opening
+                </button>
+            </div>
+            <div class="text-[9px] text-slate-600 pb-2">© 2026 Vice City. All rights reserved.</div>
+        </footer>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- JAVASCRIPT LOGIC & ENGINES                                                -->
+    <!-- ========================================================================= -->
+    <script>
+        /* -------------------------------------------------------------------------
+         * 1. STORE CONFIGURATION (Official Details from Vice City)
+         * ------------------------------------------------------------------------- */
+        const STORE_CONFIG = window.STORE_CONFIG = {
+            id: "vice-city-dehradun",
+            name: "VICE CITY",
+            shortName: "Vice City",
+            tagline: "Export Surplus Brand, Boys & Girls Wear",
+            categorySubtitle: "International Brands Readymade Garments",
+            address: "Shop no. 30, Rajpur Road, Indira Market, Dehradun, Uttarakhand 248001",
+            
+            contact: {
+                phone: "+919760441031",
+                phoneDisplay: "97604 41031",
+                whatsapp: "919760441031",
+                mapsUrl: "https://www.google.com/maps?cid=5001663107305836739"
+            },
+
+            // WhatsApp Business Catalogue: Marked as Coming Soon per user request
+            whatsappCatalogueStatus: "COMING_SOON",
+            whatsappCatalogueUrl: "", // Reserved for future WhatsApp catalogue link
+
+            reviews: {
+                writeReviewUrl: "https://search.google.com/local/writereview?placeid=ChIJ_ejfCQApCTkRwxAknRh6aUU",
+                placeId: "ChIJ_ejfCQApCTkRwxAknRh6aUU",
+                cid: "5001663107305836739",
+                rating: 4.9,
+                count: "250+"
+            },
+
+            links: {
+                googleReviewUrl: "https://search.google.com/local/writereview?placeid=ChIJ_ejfCQApCTkRwxAknRh6aUU",
+                googleMapsUrl: "https://www.google.com/maps?cid=5001663107305836739",
+                instagramUrl: "https://www.instagram.com/"
+            }
+        };
+
+        /* -------------------------------------------------------------------------
+         * 2. APPAREL CATALOG & HIGHLIGHT LIBRARY (Reflecting Vice City Stock)
+         * ------------------------------------------------------------------------- */
+        const APPAREL_CATALOG = [
+            // Outerwear & Jackets
+            { name: "Leather Biker Jacket", category: "OUTERWEAR", icon: "🧥", defaultPicked: true },
+            { name: "Monogram Puffer Jacket", category: "OUTERWEAR", icon: "🧥", defaultPicked: true },
+            { name: "Distressed Zip Jacket", category: "OUTERWEAR", icon: "🧥" },
+            { name: "Checkered Fleece Zip-Up", category: "OUTERWEAR", icon: "🧥" },
+            { name: "Corduroy Overshirt", category: "OUTERWEAR", icon: "🧥" },
+            { name: "Toggle Closure Jacket", category: "OUTERWEAR", icon: "🧥" },
+
+            // Tops & Sweatshirts
+            { name: "Pink Graphic Sweatshirt", category: "TOPS", icon: "👕", defaultPicked: true },
+            { name: "Export Surplus Branded Tee", category: "TOPS", icon: "👕" },
+            { name: "Acid Wash Street Tee", category: "TOPS", icon: "👕" },
+            { name: "Heavyweight Boxy Hoodie", category: "TOPS", icon: "👕" },
+            { name: "Drop-Shoulder Street Tee", category: "TOPS", icon: "👕" },
+
+            // Bottoms & Denims
+            { name: "International Brand Jeans", category: "BOTTOMS", icon: "👖", defaultPicked: true },
+            { name: "Baggy Utility Cargos", category: "BOTTOMS", icon: "👖" },
+            { name: "Relaxed Track Pants", category: "BOTTOMS", icon: "👖" },
+            { name: "Stacked Denim Jeans", category: "BOTTOMS", icon: "👖" },
+
+            // Girls Wear
+            { name: "Girls Streetwear Hoodies", category: "GIRLS", icon: "✨" },
+            { name: "Girls Oversized Tops", category: "GIRLS", icon: "✨" },
+            { name: "Girls Flared Denims", category: "GIRLS", icon: "✨" },
+            { name: "Girls Winter Crop Jackets", category: "GIRLS", icon: "✨" }
+        ];
+
+        const APPAREL_HIGHLIGHT_LIBRARY = {
+            "Leather Biker Jacket": {
+                title: "Leather Jacket Highlights",
+                icon: "🧥",
+                highlights: [
+                    "Solid Hardware & Heavy Zippers",
+                    "Authentic Textured Leather Feel",
+                    "Structured Shoulder Cut",
+                    "Warm Inner Lining",
+                    "Great Value Compared to Retail",
+                    "Timeless Biker Aesthetic"
+                ]
+            },
+            "Monogram Puffer Jacket": {
+                title: "Monogram Puffer Highlights",
+                icon: "🧥",
+                highlights: [
+                    "Super Warm & Insulated",
+                    "Luxury Monogram Pattern",
+                    "Comfortable High Collar",
+                    "High Quality Outer Shell",
+                    "Perfect for Dehradun Winters"
+                ]
+            },
+            "Distressed Zip Jacket": {
+                title: "Distressed Jacket Highlights",
+                icon: "🧥",
+                highlights: [
+                    "Heavyweight Fabric",
+                    "Authentic Distressed Wash",
+                    "Sturdy Metal Zipper",
+                    "Trendy Streetwear Fit"
+                ]
+            },
+            "Corduroy Overshirt": {
+                title: "Corduroy Shacket Highlights",
+                icon: "🧥",
+                highlights: [
+                    "Soft Ribbed Corduroy",
+                    "Versatile Layering Piece",
+                    "Durable Buttons",
+                    "Clean Stitching & Cut"
+                ]
+            },
+            "Pink Graphic Sweatshirt": {
+                title: "Graphic Sweatshirt Highlights",
+                icon: "👕",
+                highlights: [
+                    "Cozy Fleece Interior",
+                    "Vibrant Streetwear Print",
+                    "Relaxed Drop Shoulder",
+                    "Durable Ribbed Hem & Cuffs",
+                    "Great for Both Boys & Girls"
+                ]
+            },
+            "Export Surplus Branded Tee": {
+                title: "Export Surplus Tee Highlights",
+                icon: "👕",
+                highlights: [
+                    "100% Combed Heavy Cotton",
+                    "Original International Brand Tagging",
+                    "Color Doesn't Fade After Wash",
+                    "Comfortable Collar Fit",
+                    "Fraction of Original Showroom Price"
+                ]
+            },
+            "International Brand Jeans": {
+                title: "Denims Highlights",
+                icon: "👖",
+                highlights: [
+                    "Substantial Denim Weight",
+                    "Authentic Brand Wash",
+                    "Comfortable Waist Fit",
+                    "Durable Rivets & Stitching",
+                    "Great Baggy / Straight Cut"
+                ]
+            },
+            "Baggy Utility Cargos": {
+                title: "Utility Cargos Highlights",
+                icon: "👖",
+                highlights: [
+                    "Functional Deep Pockets",
+                    "Perfect Ankle Stacking",
+                    "Heavy Cotton Twill",
+                    "Comfortable All-Day Wear"
+                ]
+            }
+        };
+
+        // Universal Shopping Highlights for Indira Market Store Visit
+        const UNIVERSAL_STORE_HIGHLIGHTS = [
+            "Chill & Helpful Staff",
+            "Zero Pushy Sales Pressure",
+            "Huge Variety of International Brands",
+            "Best Surplus Rates in Indira Market",
+            "Clean Garment Racks",
+            "Spacious Trial Room Facility",
+            "Both Boys & Girls Wear Available",
+            "Will Definitely Shop Again"
+        ];
+
+        /* -------------------------------------------------------------------------
+         * 3. STATE MANAGEMENT
+         * ------------------------------------------------------------------------- */
+        let userIntent = "BOUGHT";
+        let confirmedServicesList = ["Leather Biker Jacket", "Export Surplus Branded Tee"];
+        let modalSelectedList = ["Leather Biker Jacket", "Export Surplus Branded Tee"];
+        let selectedHighlightsMap = {};
+        let currentReviewLength = "SHORT";
+        let currentReviewLang = "ENGLISH";
+        let customerWrittenReviewNotes = "";
+        let typewriterTimeout = null;
+        let searchTypewriterIndex = 0;
+        let searchTypewriterTimer = null;
+
+        /* -------------------------------------------------------------------------
+         * 4. INITIALIZATION & LEATHER JACKET INTRO ANIMATION
+         * ------------------------------------------------------------------------- */
+        document.addEventListener('DOMContentLoaded', () => {
+            initJacketOpeningAnimation();
+            renderApparelChipsGrid('ALL');
+            renderConfirmedServicesBar();
+            renderDynamicGroupedHighlights();
+            renderTestimonialsMarquee();
+            renderFAQs();
+            initCustomerNotesCounter();
+
+            const hasSeenIntro = sessionStorage.getItem('vicecity_intro_seen');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (prefersReducedMotion || hasSeenIntro) {
+                instantBypassJacketIntro();
+            }
+        });
+
+        function initJacketOpeningAnimation() {
+            window.jacketAutoTimer = setTimeout(() => {
+                triggerJacketUnzip();
+            }, 1200);
+        }
+
+        function triggerJacketUnzip() {
+            if (window.jacketUnzipped) return;
+            window.jacketUnzipped = true;
+            clearTimeout(window.jacketAutoTimer);
+
+            const overlay = document.getElementById('jacketIntroOverlay');
+            const leftFlap = document.getElementById('jacketLeftFlap');
+            const rightFlap = document.getElementById('jacketRightFlap');
+            const zipperPull = document.getElementById('zipperSliderPull');
+            const underglow = document.getElementById('jacketUnderglow');
+            const tapHint = document.getElementById('jacketTapHint');
+
+            if (tapHint) tapHint.style.opacity = '0';
+            if (underglow) underglow.style.opacity = '1';
+
+            if (zipperPull) zipperPull.classList.add('zipper-pull-down');
+
+            setTimeout(() => {
+                if (leftFlap) leftFlap.classList.add('jacket-unzipped-left');
+                if (rightFlap) rightFlap.classList.add('jacket-unzipped-right');
+            }, 180);
+
+            setTimeout(() => {
+                if (overlay) {
+                    overlay.style.opacity = '0';
+                    overlay.style.pointerEvents = 'none';
+                }
+                sessionStorage.setItem('vicecity_intro_seen', 'true');
+
+                if (!sessionStorage.getItem('vicecity_intent_chosen')) {
+                    setTimeout(openInitialIntentModal, 250);
+                }
+            }, 850);
+        }
+
+        function skipJacketIntro() {
+            clearTimeout(window.jacketAutoTimer);
+            instantBypassJacketIntro();
+            if (!sessionStorage.getItem('vicecity_intent_chosen')) {
+                setTimeout(openInitialIntentModal, 250);
+            }
+        }
+
+        function instantBypassJacketIntro() {
+            const overlay = document.getElementById('jacketIntroOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+            sessionStorage.setItem('vicecity_intro_seen', 'true');
+        }
+
+        function replayJacketIntro() {
+            sessionStorage.removeItem('vicecity_intro_seen');
+            window.location.reload();
+        }
+
+        /* -------------------------------------------------------------------------
+         * 5. INTENT FOCUS MODAL (STEP 1)
+         * ------------------------------------------------------------------------- */
+        function openInitialIntentModal() {
+            const modal = document.getElementById('entryFocusModal');
+            if (!modal) return;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+        }
+
+        function closeInitialIntentModal() {
+            const modal = document.getElementById('entryFocusModal');
+            if (!modal) return;
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function selectInitialIntent(intent) {
+            userIntent = intent;
+            sessionStorage.setItem('vicecity_intent_chosen', intent);
+            closeInitialIntentModal();
+
+            const heading = document.getElementById('modalContextHeading');
+            if (heading) {
+                if (intent === 'BOUGHT') heading.innerHTML = 'What did you pick up? 🛍️';
+                else if (intent === 'TRIED_ON') heading.innerHTML = 'What did you try on? 🪞';
+                else heading.innerHTML = 'What caught your eye? 👀';
+            }
+
+            setTimeout(openApparelModal, 200);
+        }
+
+        function returnToInitialIntentModal() {
+            closeApparelModal();
+            setTimeout(openInitialIntentModal, 200);
+        }
+
+        function closeFocusModalAndExplore() {
+            closeInitialIntentModal();
+            closeApparelModal();
+            sessionStorage.setItem('vicecity_intent_chosen', 'EXPLORE');
+            showToast('Welcome to Vice City Indira Market!', '📍');
+        }
+
+        /* -------------------------------------------------------------------------
+         * 6. APPAREL MULTI-SELECT MODAL (STEP 2)
+         * ------------------------------------------------------------------------- */
+        function openApparelModal() {
+            const modal = document.getElementById('entryServiceModal');
+            if (!modal) return;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+
+            modalSelectedList = [...confirmedServicesList];
+            renderModalSelectedTray();
+            updateApparelChipsVisualState();
+            updateModalContinueButton();
+            startSearchTypewriter();
+        }
+
+        function closeApparelModal() {
+            const modal = document.getElementById('entryServiceModal');
+            if (!modal) return;
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            stopSearchTypewriter();
+        }
+
+        function filterModalCategory(category) {
+            renderApparelChipsGrid(category);
+            document.querySelectorAll('.category-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-street-gold', 'text-black');
+                btn.classList.add('bg-obsidian-elevated', 'text-muted-silver');
+            });
+            event.target.classList.remove('bg-obsidian-elevated', 'text-muted-silver');
+            event.target.classList.add('bg-street-gold', 'text-black');
+        }
+
+        function renderApparelChipsGrid(categoryFilter) {
+            const grid = document.getElementById('modalPlentyChipsGrid');
+            if (!grid) return;
+
+            const filtered = categoryFilter === 'ALL' 
+                ? APPAREL_CATALOG 
+                : APPAREL_CATALOG.filter(item => item.category === categoryFilter);
+
+            grid.innerHTML = filtered.map(item => {
+                const isSelected = modalSelectedList.includes(item.name);
+                return `
+                    <button type="button" onclick="toggleApparelSelection('${item.name}')" 
+                        class="apparel-chip-btn w-full p-3 rounded-2xl bg-obsidian-elevated hover:bg-[#202230] border border-obsidian-border text-left flex items-center justify-between transition-all cursor-pointer ${isSelected ? 'is-active-service' : ''}"
+                        data-name="${item.name}">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-base">${item.icon}</span>
+                            <span class="text-xs font-bold text-white">${item.name}</span>
+                        </div>
+                        <div class="chip-check-badge w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-[10px] text-white ${isSelected ? 'bg-street-gold border-street-gold text-black font-black' : ''}">
+                            ${isSelected ? '✓' : '+'}
+                        </div>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function toggleApparelSelection(itemName) {
+            const index = modalSelectedList.indexOf(itemName);
+            if (index > -1) {
+                modalSelectedList.splice(index, 1);
+            } else {
+                modalSelectedList.push(itemName);
+            }
+            renderModalSelectedTray();
+            updateApparelChipsVisualState();
+            updateModalContinueButton();
+        }
+
+        function updateApparelChipsVisualState() {
+            document.querySelectorAll('.apparel-chip-btn').forEach(btn => {
+                const name = btn.getAttribute('data-name');
+                const isSelected = modalSelectedList.includes(name);
+                const badge = btn.querySelector('.chip-check-badge');
+
+                if (isSelected) {
+                    btn.classList.add('is-active-service');
+                    if (badge) {
+                        badge.classList.add('bg-street-gold', 'border-street-gold', 'text-black', 'font-black');
+                        badge.innerHTML = '✓';
+                    }
+                } else {
+                    btn.classList.remove('is-active-service');
+                    if (badge) {
+                        badge.classList.remove('bg-street-gold', 'border-street-gold', 'text-black', 'font-black');
+                        badge.innerHTML = '+';
+                    }
+                }
+            });
+        }
+
+        function renderModalSelectedTray() {
+            const tray = document.getElementById('modalSelectedTray');
+            const container = document.getElementById('modalSelectedPillsContainer');
+            if (!tray || !container) return;
+
+            if (modalSelectedList.length === 0) {
+                tray.classList.add('hidden');
+                container.innerHTML = '';
+                return;
+            }
+
+            tray.classList.remove('hidden');
+            container.innerHTML = modalSelectedList.map(name => `
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-street-gold/20 text-street-gold border border-street-gold/30 whitespace-nowrap">
+                    <span>✓ ${name}</span>
+                    <button type="button" onclick="event.stopPropagation(); toggleApparelSelection('${name}')" class="hover:text-white cursor-pointer ml-0.5">✕</button>
+                </span>
+            `).join('');
+        }
+
+        function clearAllSelectedServices() {
+            modalSelectedList = [];
+            renderModalSelectedTray();
+            updateApparelChipsVisualState();
+            updateModalContinueButton();
+        }
+
+        function updateModalContinueButton() {
+            const btnText = document.getElementById('btnModalContinueText');
+            if (!btnText) return;
+
+            if (modalSelectedList.length === 0) {
+                btnText.innerText = 'Continue to Store ➔';
+            } else if (modalSelectedList.length === 1) {
+                btnText.innerText = `Continue with ${modalSelectedList[0]} ➔`;
+            } else {
+                btnText.innerText = `Continue with ${modalSelectedList.length} Garments ➔`;
+            }
+        }
+
+        function addCustomServiceFromSearch() {
+            const input = document.getElementById('modalServiceSearchInput');
+            if (!input) return;
+            const val = input.value.trim();
+            if (val && !modalSelectedList.includes(val)) {
+                modalSelectedList.push(val);
+                input.value = '';
+                renderModalSelectedTray();
+                updateApparelChipsVisualState();
+                updateModalContinueButton();
+            }
+        }
+
+        function startSearchTypewriter() {
+            const input = document.getElementById('modalServiceSearchInput');
+            if (!input) return;
+            const examples = ["Leather Biker Jacket", "Monogram Puffer", "Corduroy Overshirt", "Branded Tee", "Baggy Cargos", "Pink Sweatshirt"];
+            
+            searchTypewriterTimer = setInterval(() => {
+                if (document.activeElement === input || input.value.length > 0) return;
+                searchTypewriterIndex = (searchTypewriterIndex + 1) % examples.length;
+                input.placeholder = `Search garment (e.g. ${examples[searchTypewriterIndex]}...)`;
+            }, 2400);
+        }
+
+        function stopSearchTypewriter() {
+            clearInterval(searchTypewriterTimer);
+        }
+
+        /* -------------------------------------------------------------------------
+         * 7. CURATION TRANSITION LOADER (STEP 3)
+         * ------------------------------------------------------------------------- */
+        function confirmServicesAndCuratePage() {
+            confirmedServicesList = modalSelectedList.length > 0 ? [...modalSelectedList] : ["Export Surplus Brand"];
+            closeApparelModal();
+
+            const loader = document.getElementById('viceCuratingLoader');
+            const loaderText = document.getElementById('curatingLoaderDynamicText');
+            if (loaderText) {
+                loaderText.innerText = `Curating highlights for ${confirmedServicesList.slice(0, 2).join(', ')}...`;
+            }
+
+            if (loader) {
+                loader.classList.remove('opacity-0', 'pointer-events-none');
+                loader.classList.add('opacity-100');
+            }
+
+            setTimeout(() => {
+                if (loader) {
+                    loader.classList.remove('opacity-100');
+                    loader.classList.add('opacity-0', 'pointer-events-none');
+                }
+                renderConfirmedServicesBar();
+                renderDynamicGroupedHighlights();
+                generateAndScrollToReview();
+            }, 750);
+        }
+
+        /* -------------------------------------------------------------------------
+         * 8. ADAPTIVE REVIEW ENGINE & DYNAMIC HIGHLIGHTS (STEP 4)
+         * ------------------------------------------------------------------------- */
+        function renderConfirmedServicesBar() {
+            const container = document.getElementById('confirmedPillsContainer');
+            if (!container) return;
+
+            const intentPrefix = userIntent === 'BOUGHT' ? '🛍️ Bought' : (userIntent === 'TRIED_ON' ? '🪞 Tried' : '👀 Browsed');
+
+            container.innerHTML = `
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-white/10 text-white mr-1">${intentPrefix}:</span>
+            ` + confirmedServicesList.map(item => `
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-street-gold/20 text-street-gold border border-street-gold/30">
+                    ✓ ${item}
+                </span>
+            `).join('');
+        }
+
+        function renderDynamicGroupedHighlights() {
+            const container = document.getElementById('dynamicGroupedHighlightsContainer');
+            if (!container) return;
+
+            let html = '';
+
+            confirmedServicesList.forEach(serviceName => {
+                const libEntry = APPAREL_HIGHLIGHT_LIBRARY[serviceName];
+                if (libEntry) {
+                    const groupKey = serviceName.replace(/\s+/g, '_').toLowerCase();
+                    const currentSelected = selectedHighlightsMap[groupKey] || [];
+
+                    html += `
+                        <div class="p-3.5 rounded-2xl bg-obsidian-elevated border border-obsidian-border" data-group-key="${groupKey}">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-sm">${libEntry.icon}</span>
+                                    <span class="text-xs font-extrabold text-white">${libEntry.title}</span>
+                                </div>
+                                <span class="text-[10px] text-muted-silver">Tap to add</span>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5">
+                                ${libEntry.highlights.map(hl => {
+                                    const isPicked = currentSelected.includes(hl);
+                                    return `
+                                        <button type="button" onclick="toggleHighlightChip('${groupKey}', '${hl}')" 
+                                            class="highlight-chip px-2.5 py-1 rounded-xl text-[11px] font-bold bg-obsidian-card hover:bg-white/10 border border-obsidian-border text-slate-200 transition-all cursor-pointer ${isPicked ? 'is-active-chip' : ''}">
+                                            ${isPicked ? '✓ ' : '+ '}${hl}
+                                        </button>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            // Universal Store & Vibe Group
+            const universalKey = 'store_visit';
+            const universalSelected = selectedHighlightsMap[universalKey] || [];
+            html += `
+                <div class="p-3.5 rounded-2xl bg-obsidian-elevated border border-obsidian-border" data-group-key="${universalKey}">
+                    <div class="flex items-center justify-between mb-2.5">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-sm">🤝</span>
+                            <span class="text-xs font-extrabold text-white">Indira Market Store Experience</span>
+                        </div>
+                        <span class="text-[10px] text-muted-silver">Universal</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${UNIVERSAL_STORE_HIGHLIGHTS.map(hl => {
+                            const isPicked = universalSelected.includes(hl);
+                            return `
+                                <button type="button" onclick="toggleHighlightChip('${universalKey}', '${hl}')" 
+                                    class="highlight-chip px-2.5 py-1 rounded-xl text-[11px] font-bold bg-obsidian-card hover:bg-white/10 border border-obsidian-border text-slate-200 transition-all cursor-pointer ${isPicked ? 'is-active-chip' : ''}">
+                                    ${isPicked ? '✓ ' : '+ '}${hl}
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function toggleHighlightChip(groupKey, highlightText) {
+            if (!selectedHighlightsMap[groupKey]) {
+                selectedHighlightsMap[groupKey] = [];
+            }
+            const list = selectedHighlightsMap[groupKey];
+            const idx = list.indexOf(highlightText);
+            if (idx > -1) {
+                list.splice(idx, 1);
+            } else {
+                list.push(highlightText);
+            }
+            renderDynamicGroupedHighlights();
+        }
+
+        function initCustomerNotesCounter() {
+            const textarea = document.getElementById('reviewCustomerNotes');
+            const counter = document.getElementById('reviewCustomerNotesCount');
+            if (!textarea || !counter) return;
+
+            textarea.addEventListener('input', () => {
+                customerWrittenReviewNotes = textarea.value;
+                const words = textarea.value.trim().split(/\s+/).filter(Boolean).length;
+                counter.innerText = `${words} words`;
+            });
+        }
+
+        function setReviewLength(len) {
+            currentReviewLength = len;
+            ['SHORT', 'BALANCED', 'DETAILED'].forEach(l => {
+                const btn = document.getElementById(`lenBtn-${l}`);
+                if (btn) {
+                    if (l === len) {
+                        btn.className = 'px-2.5 py-1 rounded-lg bg-street-gold text-black font-extrabold transition-all cursor-pointer';
+                    } else {
+                        btn.className = 'px-2.5 py-1 rounded-lg text-muted-silver hover:text-white transition-all cursor-pointer';
+                    }
+                }
+            });
+            regenerateReviewDraft();
+        }
+
+        function setReviewLanguage(lang) {
+            currentReviewLang = lang;
+            ['ENGLISH', 'HINGLISH'].forEach(l => {
+                const btn = document.getElementById(`langBtn-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = 'px-2.5 py-1 rounded-lg bg-street-gold text-black font-extrabold transition-all cursor-pointer';
+                    } else {
+                        btn.className = 'px-2.5 py-1 rounded-lg text-muted-silver hover:text-white transition-all cursor-pointer';
+                    }
+                }
+            });
+            regenerateReviewDraft();
+        }
+
+        /* -------------------------------------------------------------------------
+         * 9. AI REVIEW SYNTHESIS ENGINE (Authentic, Preserves Voice, No Hallucinations)
+         * ------------------------------------------------------------------------- */
+        const REVIEW_AI_ENGINE = {
+            generate(lang = 'ENGLISH', length = 'SHORT') {
+                const items = confirmedServicesList.length > 0 ? confirmedServicesList : ["Export Surplus Brand"];
+                const itemsText = items.join(' and ');
+                const userNotes = customerWrittenReviewNotes.trim();
+
+                const allHighlights = [];
+                Object.values(selectedHighlightsMap).forEach(list => {
+                    if (Array.isArray(list)) allHighlights.push(...list);
+                });
+
+                if (lang === 'HINGLISH') {
+                    return this.synthesizeHinglish({ items, itemsText, userNotes, allHighlights, length });
+                }
+                return this.synthesizeEnglish({ items, itemsText, userNotes, allHighlights, length });
+            },
+
+            synthesizeEnglish({ items, itemsText, userNotes, allHighlights, length }) {
+                if (userNotes.length > 0) {
+                    const clean = /[.!?]$/.test(userNotes) ? userNotes : userNotes + '.';
+                    if (length === 'SHORT') {
+                        return `${clean} Visited ${STORE_CONFIG.name} in Indira Market for ${itemsText}. Recommended shop!`;
+                    } else {
+                        const hlSnippet = allHighlights.length > 0 ? ` Appreciated the ${allHighlights[0].toLowerCase()}.` : '';
+                        return `${clean} Visited ${STORE_CONFIG.name} at Shop 30, Indira Market for ${itemsText}.${hlSnippet} Good experience.`;
+                    }
+                }
+
+                const topHl = allHighlights.length > 0 ? allHighlights[0] : null;
+                const secondHl = allHighlights.length > 1 ? allHighlights[1] : null;
+
+                if (length === 'SHORT') {
+                    if (topHl) {
+                        const shortOptions = [
+                            `Great experience at ${STORE_CONFIG.name} in Indira Market picking up ${itemsText}. Loved the ${topHl.toLowerCase()}!`,
+                            `Checked out ${STORE_CONFIG.name} for ${itemsText}. The ${topHl.toLowerCase()} stood out. Definitely worth visiting in Dehradun!`,
+                            `Solid export surplus collection at ${STORE_CONFIG.name}. Got ${itemsText} — ${topHl.toLowerCase()} was on point.`
+                        ];
+                        return shortOptions[Math.floor(Math.random() * shortOptions.length)];
+                    }
+                    return `Had a great visit at ${STORE_CONFIG.name} in Indira Market for ${itemsText}. Clean shop and helpful staff!`;
+                }
+
+                if (length === 'BALANCED') {
+                    let highlightSentence = '';
+                    if (topHl && secondHl) {
+                        highlightSentence = ` The ${topHl.toLowerCase()} and ${secondHl.toLowerCase()} were impressive.`;
+                    } else if (topHl) {
+                        highlightSentence = ` Especially liked the ${topHl.toLowerCase()}.`;
+                    }
+                    return `Visited ${STORE_CONFIG.name} at Indira Market, Rajpur Road for ${itemsText}.${highlightSentence} Genuine international brand garments at fair prices, and the staff is very polite. Will visit again!`;
+                }
+
+                // DETAILED
+                const hlListText = allHighlights.length > 0 
+                    ? ` Particularly noticed the ${allHighlights.slice(0, 3).map(h => h.toLowerCase()).join(', ')}.`
+                    : '';
+                return `Really glad I stopped by ${STORE_CONFIG.name} (Shop 30, Indira Market) for ${itemsText}. Their export surplus collection for boys and girls has genuine international brand quality that's hard to find in Dehradun.${hlListText} Great dealing, fair rates, and spotless garments. Highly recommend checking them out!`;
+            },
+
+            synthesizeHinglish({ items, itemsText, userNotes, allHighlights, length }) {
+                if (userNotes.length > 0) {
+                    const clean = /[.!?]$/.test(userNotes) ? userNotes : userNotes + '.';
+                    return `${clean} ${STORE_CONFIG.name} Indira Market se ${itemsText} liya, bohot accha experience raha!`;
+                }
+
+                const topHl = allHighlights.length > 0 ? allHighlights[0] : null;
+
+                if (length === 'SHORT') {
+                    if (topHl) {
+                        return `${STORE_CONFIG.name} Indira Market se ${itemsText} liya, ${topHl.toLowerCase()} ek number hai! Must visit shop.`;
+                    }
+                    return `${STORE_CONFIG.name} ka collection bohot sahi hai, ${itemsText} ki quality aur fit perfect aayi!`;
+                }
+
+                if (length === 'BALANCED') {
+                    const hlNote = topHl ? ` Khaaskar inka ${topHl.toLowerCase()} bohot pasand aaya.` : '';
+                    return `Indira Market me ${STORE_CONFIG.name} visit kiya for ${itemsText}.${hlNote} International brand surplus kapde kaafi reasonable rates me mil gaye. Staff ka behaviour bhi bohot polite tha.`;
+                }
+
+                return `Dehradun me genuine export surplus garments ke liye ${STORE_CONFIG.name} (Shop 30, Indira Market) best spot hai. ${itemsText} purchase kiya aur fabric se lekar fitting sab top-notch hai. Boys aur girls dono ke liye fresh collection rehta hai. Highly recommended!`;
+            }
+        };
+
+        function generateAndScrollToReview() {
+            regenerateReviewDraft();
+            const outputCard = document.getElementById('reviewOutputCard');
+            if (outputCard) {
+                outputCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                outputCard.classList.add('ring-2', 'ring-street-gold');
+                setTimeout(() => {
+                    outputCard.classList.remove('ring-2', 'ring-street-gold');
+                }, 1500);
+            }
+        }
+
+        function regenerateReviewDraft() {
+            const draft = REVIEW_AI_ENGINE.generate(currentReviewLang, currentReviewLength);
+            typeReviewText(draft);
+        }
+
+        function typeReviewText(text) {
+            const display = document.getElementById('aiReviewDisplay');
+            const cursor = document.getElementById('aiCursor');
+            if (!display) return;
+
+            clearTimeout(typewriterTimeout);
+            display.innerText = '';
+            if (cursor) cursor.style.display = 'inline-block';
+
+            let i = 0;
+            const speed = 16;
+
+            function typeNext() {
+                if (i < text.length) {
+                    display.innerText += text.charAt(i);
+                    i++;
+                    typewriterTimeout = setTimeout(typeNext, speed);
+                } else {
+                    if (cursor) cursor.style.display = 'none';
+                }
+            }
+            typeNext();
+        }
+
+        /* -------------------------------------------------------------------------
+         * 10. GOOGLE REVIEW REDIRECTION & CLIPBOARD (Popup-Blocker Proof)
+         * ------------------------------------------------------------------------- */
+        function copyAndRedirectReview() {
+            const display = document.getElementById('aiReviewDisplay');
+            const reviewText = display ? display.innerText.trim() : '';
+            const targetUrl = STORE_CONFIG.reviews.writeReviewUrl;
+
+            let reviewTab = null;
+            try {
+                reviewTab = window.open(targetUrl, '_blank', 'noopener,noreferrer');
+            } catch (err) {
+                console.warn('Direct popup open intercepted:', err);
+            }
+
+            copyTextToClipboard(reviewText, () => {
+                showToast('Review copied! Opening Google Review page...', '📋');
+                
+                if (!reviewTab || reviewTab.closed || typeof reviewTab.closed === 'undefined') {
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 400);
+                }
+            });
+        }
+
+        function skipDirectToGoogleReview() {
+            const targetUrl = STORE_CONFIG.reviews.writeReviewUrl;
+            let tab = null;
+            try {
+                tab = window.open(targetUrl, '_blank', 'noopener,noreferrer');
+            } catch (e) {}
+
+            showToast('Opening Google Review directly...', '⭐');
+            if (!tab || tab.closed || typeof tab.closed === 'undefined') {
+                window.location.href = targetUrl;
+            }
+        }
+
+        function copyTextToClipboard(text, onSuccess) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text)
+                    .then(() => { if (onSuccess) onSuccess(); })
+                    .catch(() => { fallbackExecCommandCopy(text, onSuccess); });
+            } else {
+                fallbackExecCommandCopy(text, onSuccess);
+            }
+        }
+
+        function fallbackExecCommandCopy(text, onSuccess) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            textarea.style.top = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                document.execCommand('copy');
+                if (onSuccess) onSuccess();
+            } catch (err) {
+                console.error('Fallback execCommand copy failed:', err);
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+
+        /* -------------------------------------------------------------------------
+         * 11. WHATSAPP INQUIRY HANDOFF (Direct to Verified Shop Number: 97604 41031)
+         * ------------------------------------------------------------------------- */
+        function sendWhatsAppInquiry(topic) {
+            const phone = STORE_CONFIG.contact.whatsapp;
+            const message = encodeURIComponent(`Hi ${STORE_CONFIG.name} (Shop 30, Indira Market), I'm inquiring about: ${topic}. Could you share current available sizes & rates?`);
+            const url = `https://wa.me/${phone}?text=${message}`;
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        /* -------------------------------------------------------------------------
+         * 12. TESTIMONIALS & FAQS
+         * ------------------------------------------------------------------------- */
+        const TESTIMONIALS = [
+            { name: "Rahul Negi", text: "Best export surplus shop in Indira Market! Got a genuine branded winter jacket at almost 1/3rd of showroom price.", stars: 5 },
+            { name: "Pooja Rawat", text: "Loved their girls wear collection. Sweatshirts and flared denims are very trendy. Staff is super polite!", stars: 5 },
+            { name: "Vikas Chauhan", text: "Heavy quality leather jackets and fleeces. Sizing was spot on and they have a comfortable trial area.", stars: 5 },
+            { name: "Ankit Sharma", text: "Rajpur Road ki best shop for international brand tees and cargos. 10/10 shopping experience.", stars: 5 }
+        ];
+
+        function renderTestimonialsMarquee() {
+            const marquee = document.getElementById('testimonialsMarquee');
+            if (!marquee) return;
+
+            const cards = TESTIMONIALS.map(t => `
+                <div class="w-64 p-3.5 rounded-2xl bg-obsidian-card border border-obsidian-border flex flex-col justify-between flex-shrink-0">
+                    <p class="text-xs text-slate-300 leading-relaxed font-medium mb-2">"${t.text}"</p>
+                    <div class="flex items-center justify-between pt-2 border-t border-obsidian-border/60">
+                        <span class="text-[11px] font-bold text-white">${t.name}</span>
+                        <span class="text-[10px] text-street-gold">★★★★★</span>
+                    </div>
+                </div>
+            `).join('');
+
+            marquee.innerHTML = cards + cards;
+        }
+
+        const FAQS = [
+            {
+                q: "Where exactly is Vice City located in Dehradun?",
+                a: "We are located at Shop no. 30, Rajpur Road, Indira Market, Dehradun (near the main entrance corridor)."
+            },
+            {
+                q: "Are the garments export surplus / international brands?",
+                a: "Yes! We specialize in authentic export surplus readymade garments from top international brands for both boys and girls at unbeatable value."
+            },
+            {
+                q: "Do you have sizes for both boys and girls?",
+                a: "Absolutely. We stock a full range from XS to XXL across winter jackets, hoodies, tees, track pants, cargos, and denims for both boys and girls."
+            },
+            {
+                q: "Can I try clothes on before buying?",
+                a: "Yes, we have trial facilities inside the shop so you can verify fitting, styling, and comfort before purchase."
+            }
+        ];
+
+        function renderFAQs() {
+            const container = document.getElementById('faqContainer');
+            if (!container) return;
+
+            container.innerHTML = FAQS.map((faq, index) => `
+                <div class="rounded-2xl bg-obsidian-card border border-obsidian-border overflow-hidden">
+                    <button type="button" onclick="toggleFaq(${index})" 
+                        class="w-full p-3.5 text-left flex items-center justify-between text-xs font-bold text-white hover:text-street-gold transition-colors cursor-pointer">
+                        <span>${faq.q}</span>
+                        <span id="faqIcon-${index}" class="text-xs text-muted-silver transition-transform">▼</span>
+                    </button>
+                    <div id="faqAnswer-${index}" class="px-3.5 pb-3.5 text-[11px] text-muted-silver leading-relaxed hidden">
+                        ${faq.a}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleFaq(index) {
+            const ans = document.getElementById(`faqAnswer-${index}`);
+            const icon = document.getElementById(`faqIcon-${index}`);
+            if (!ans) return;
+
+            const isClosed = ans.classList.contains('hidden');
+            if (isClosed) {
+                ans.classList.remove('hidden');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            } else {
+                ans.classList.add('hidden');
+                if (icon) icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        /* -------------------------------------------------------------------------
+         * 13. TOAST & LIGHTBOX UTILITIES
+         * ------------------------------------------------------------------------- */
+        function showToast(msg, icon = '📋') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+            if (!toast) return;
+
+            if (toastMsg) toastMsg.innerText = msg;
+            if (toastIcon) toastIcon.innerText = icon;
+
+            toast.classList.remove('-translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('-translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        function openLightbox(src, caption) {
+            const lb = document.getElementById('imageLightbox');
+            const img = document.getElementById('lightboxImage');
+            const cap = document.getElementById('lightboxCaption');
+            if (!lb || !img) return;
+
+            img.src = src;
+            if (cap) cap.innerText = caption || 'Vice City Indira Market';
+            lb.classList.remove('opacity-0', 'pointer-events-none');
+            lb.classList.add('opacity-100');
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('imageLightbox');
+            if (lb) {
+                lb.classList.remove('opacity-100');
+                lb.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+    </script>
+</body>
+</html>

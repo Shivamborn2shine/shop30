@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F2EFE9;
+  color: #18181B;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Leather Grain Simulation for Intro */
+.leather-texture {
+  background-color: #101015;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(25, 25, 35, 0.6) 0%, rgba(10, 10, 14, 0.95) 100%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 4px);
+}
+
+.leather-stitch-left {
+  border-right: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.leather-stitch-right {
+  border-left: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+/* Jacket 3D Flap Animations */
+.jacket-flap-left {
+  transform-origin: left center;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.jacket-flap-right {
+  transform-origin: right center;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.jacket-unzipped-left {
+  transform: perspective(1200px) rotateY(-80deg) translateX(-100%);
+  opacity: 0.15;
+}
+
+.jacket-unzipped-right {
+  transform: perspective(1200px) rotateY(80deg) translateX(100%);
+  opacity: 0.15;
+}
+
+.zipper-pull-down {
+  transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: translateY(92vh);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
