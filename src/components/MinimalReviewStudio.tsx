@@ -162,9 +162,64 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
     );
   };
 
-  const handleCopyAndPost = () => {
-    const finalReview = reviewText.trim();
+  const handleCopyAndPost = async () => {
+    if (typewriterTimer.current) {
+      clearTimeout(typewriterTimer.current);
+      typewriterTimer.current = null;
+    }
+
+    const fullGenerated = buildReview(selectedCategories, selectedVibes, lang, variationIdx);
+    const finalReview = (isTyping ? fullGenerated : reviewText.trim()) || fullGenerated;
+    if (isTyping) {
+      setReviewText(finalReview);
+      setIsTyping(false);
+    }
+
     const targetUrl = STORE_CONFIG.reviews.writeReviewUrl;
+
+    // 1. Synchronous DOM copy FIRST (while document is focused & inside user gesture)
+    const syncExecCopy = (text: string): boolean => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '0';
+        ta.style.left = '0';
+        ta.style.width = '2em';
+        ta.style.height = '2em';
+        ta.style.padding = '0';
+        ta.style.border = 'none';
+        ta.style.outline = 'none';
+        ta.style.boxShadow = 'none';
+        ta.style.background = 'transparent';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus({ preventScroll: true });
+        ta.select();
+        ta.setSelectionRange(0, text.length);
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      } catch {
+        return false;
+      }
+    };
+
+    syncExecCopy(finalReview);
+
+    // 2. Also await modern Async Clipboard API (with 150ms cap) before navigating
+    // so Chrome/iOS/Android commits the clipboard buffer before focus leaves the page
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await Promise.race([
+          navigator.clipboard.writeText(finalReview),
+          new Promise((resolve) => setTimeout(resolve, 150)),
+        ]);
+      } catch {
+        syncExecCopy(finalReview);
+      }
+    }
 
     confetti({
       particleCount: 65,
@@ -173,38 +228,15 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
       colors: ['#C89B3C', '#E3B448', '#18181B']
     });
 
-    let reviewTab: Window | null = null;
-    try {
-      reviewTab = window.open(targetUrl, '_blank', 'noopener,noreferrer');
-    } catch (e) {}
+    onShowToast('Review copied! Redirecting to Google Reviews...', '✨');
 
-    const fallbackCopy = () => {
-      const ta = document.createElement('textarea');
-      ta.value = finalReview;
-      ta.style.position = 'fixed';
-      ta.style.left = '-9999px';
-      document.body.appendChild(ta);
-      ta.focus();
-      ta.select();
-      try {
-        document.execCommand('copy');
-      } catch (e) {}
-      document.body.removeChild(ta);
-    };
-
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(finalReview).catch(fallbackCopy);
-    } else {
-      fallbackCopy();
-    }
-
-    onShowToast('Review copied! Opening Google Reviews...', '✨');
-
-    if (!reviewTab || reviewTab.closed || typeof reviewTab.closed === 'undefined') {
-      setTimeout(() => {
+    // 3. Redirect after clipboard is committed
+    setTimeout(() => {
+      const newWin = window.open(targetUrl, '_blank');
+      if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
         window.location.href = targetUrl;
-      }, 350);
-    }
+      }
+    }, 250);
   };
 
   return (

@@ -94,35 +94,23 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
     typeReviewText(newDraft);
   };
 
-  const copyAndRedirectReview = () => {
+  const copyAndRedirectReview = async () => {
     const textToCopy = displayText.trim() || reviewDraft;
     const targetUrl = STORE_CONFIG.reviews.writeReviewUrl;
 
-    // 1. Trigger celebratory confetti!
-    confetti({
-      particleCount: 70,
-      spread: 60,
-      origin: { y: 0.8 },
-      colors: ['#D4AF37', '#F7E7A9', '#A855F7', '#FFFFFF']
-    });
-
-    // 2. Synchronously open window within user gesture loop
-    let reviewTab: Window | null = null;
-    try {
-      reviewTab = window.open(targetUrl, '_blank', 'noopener,noreferrer');
-    } catch (err) {
-      console.warn('Popup intercepted:', err);
-    }
-
-    // 3. Clipboard copy with fallbacks
+    // 1. Copy FIRST while document has focus and active user gesture
     const fallbackCopy = () => {
       const textarea = document.createElement('textarea');
       textarea.value = textToCopy;
+      textarea.setAttribute('readonly', '');
       textarea.style.position = 'fixed';
-      textarea.style.left = '-9999px';
+      textarea.style.top = '0';
+      textarea.style.left = '0';
+      textarea.style.opacity = '0';
       document.body.appendChild(textarea);
-      textarea.focus();
+      textarea.focus({ preventScroll: true });
       textarea.select();
+      textarea.setSelectionRange(0, textToCopy.length);
       try {
         document.execCommand('copy');
       } catch (e) {
@@ -131,20 +119,36 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
       document.body.removeChild(textarea);
     };
 
+    fallbackCopy();
+
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(textToCopy).catch(() => fallbackCopy());
-    } else {
-      fallbackCopy();
+      try {
+        await Promise.race([
+          navigator.clipboard.writeText(textToCopy),
+          new Promise((resolve) => setTimeout(resolve, 150)),
+        ]);
+      } catch {
+        fallbackCopy();
+      }
     }
+
+    // 2. Trigger celebratory confetti & toast
+    confetti({
+      particleCount: 70,
+      spread: 60,
+      origin: { y: 0.8 },
+      colors: ['#D4AF37', '#F7E7A9', '#A855F7', '#FFFFFF']
+    });
 
     onShowToast('Review copied! Opening Google Review page...', '📋');
 
-    // 4. Fallback navigation if tab blocked
-    if (!reviewTab || reviewTab.closed || typeof reviewTab.closed === 'undefined') {
-      setTimeout(() => {
+    // 3. Redirect after clipboard is committed
+    setTimeout(() => {
+      const reviewTab = window.open(targetUrl, '_blank');
+      if (!reviewTab || reviewTab.closed || typeof reviewTab.closed === 'undefined') {
         window.location.href = targetUrl;
-      }, 400);
-    }
+      }
+    }, 250);
   };
 
   const wordCount = customerNotes.trim().split(/\s+/).filter(Boolean).length;
