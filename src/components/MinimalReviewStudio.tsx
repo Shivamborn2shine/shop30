@@ -5,6 +5,7 @@ import { STORE_CONFIG } from '../config/store.config';
 
 interface MinimalReviewStudioProps {
   onShowToast: (msg: string, icon?: string) => void;
+  externalSelectedCategory?: { id: string; timestamp: number } | null;
 }
 
 const VISUAL_CATEGORIES = [
@@ -13,7 +14,7 @@ const VISUAL_CATEGORIES = [
     title: 'Jackets &\nPuffers',
     shortName: 'jacket',
     pluralName: 'jackets & puffers',
-    image: 'assets/images/ViceCity/03_Black_Zip_Jacket_Mannequin.jpg',
+    image: 'assets/images/ViceCity/drop_02_monogram_puffer.jpg',
     icon: (
       <svg className="w-5 h-5 text-zinc-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <path d="M15 3l5 3v13a2 2 0 01-2 2h-3V3z" />
@@ -53,7 +54,7 @@ const VISUAL_CATEGORIES = [
     title: 'Girls Wear',
     shortName: 'girls wear collection',
     pluralName: 'girls wear pieces',
-    image: 'assets/images/ViceCity/04_Pink_Graphic_Sweatshirt.jpg',
+    image: 'assets/images/ViceCity/drop_01_magenta_sweatshirt.jpg',
     icon: (
       <svg className="w-5 h-5 text-zinc-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 3h8l-1.5 6L19 21H5l4.5-12L8 3z" />
@@ -72,15 +73,34 @@ const STANDOUT_PILLS = [
   'Value for money'
 ];
 
-export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShowToast }) => {
+export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({
+  onShowToast,
+  externalSelectedCategory,
+}) => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>(['jackets']);
   const [selectedVibes, setSelectedVibes] = useState<string[]>(['Fabric quality', 'Great prices']);
   const [lang, setLang] = useState<'EN' | 'HI'>('EN');
   const [reviewText, setReviewText] = useState<string>('');
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const [variationIdx, setVariationIdx] = useState<number>(0);
+  const [activeStep, setActiveStep] = useState<1 | 2 | 3>(1);
+  const [highlightReview, setHighlightReview] = useState<boolean>(false);
 
   const typewriterTimer = useRef<NodeJS.Timeout | null>(null);
+  const step1Ref = useRef<HTMLDivElement | null>(null);
+  const step2Ref = useRef<HTMLDivElement | null>(null);
+  const step3Ref = useRef<HTMLDivElement | null>(null);
+
+  // Sync external category selection from Featured Drops
+  useEffect(() => {
+    if (!externalSelectedCategory) return;
+    const catId = externalSelectedCategory.id;
+    setSelectedCategories([catId]);
+    setActiveStep(2);
+    setTimeout(() => {
+      step2Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 200);
+  }, [externalSelectedCategory]);
 
   const buildReview = (
     catIds: string[],
@@ -142,7 +162,13 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
     };
   }, [selectedCategories, selectedVibes, lang, variationIdx]);
 
+  const pulseReviewCard = () => {
+    setHighlightReview(true);
+    setTimeout(() => setHighlightReview(false), 1200);
+  };
+
   const toggleCategory = (id: string) => {
+    const isAdding = !selectedCategories.includes(id);
     setSelectedCategories((prev) =>
       prev.includes(id)
         ? prev.length > 1
@@ -150,6 +176,13 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
           : prev
         : [...prev, id]
     );
+
+    setActiveStep(2);
+    if (isAdding || selectedCategories.length === 1) {
+      setTimeout(() => {
+        step2Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 240);
+    }
   };
 
   const toggleVibe = (label: string) => {
@@ -160,6 +193,12 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
           : prev
         : [...prev, label]
     );
+
+    setActiveStep(3);
+    pulseReviewCard();
+    setTimeout(() => {
+      step3Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 240);
   };
 
   const handleCopyAndPost = async () => {
@@ -209,7 +248,6 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
     syncExecCopy(finalReview);
 
     // 2. Also await modern Async Clipboard API (with 150ms cap) before navigating
-    // so Chrome/iOS/Android commits the clipboard buffer before focus leaves the page
     if (navigator.clipboard && window.isSecureContext) {
       try {
         await Promise.race([
@@ -241,36 +279,81 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
 
   return (
     <section className="px-4 mt-4">
-      {/* 3-Step Progress Indicator */}
+      {/* 3-Step Interactive Progress Indicator */}
       <div className="flex items-center justify-between px-1 mb-5">
-        <div className="flex items-center gap-2">
-          <span className="w-7 h-7 rounded-full bg-[#C69635] text-white text-xs font-extrabold flex items-center justify-center shadow-2xs">
+        <button
+          type="button"
+          onClick={() => {
+            setActiveStep(1);
+            step1Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }}
+          className="flex items-center gap-2 cursor-pointer"
+        >
+          <span
+            className={`w-7 h-7 rounded-full text-xs font-extrabold flex items-center justify-center transition-colors ${
+              activeStep >= 1
+                ? 'bg-[#C69635] text-white shadow-2xs'
+                : 'bg-white border border-zinc-300 text-zinc-700'
+            }`}
+          >
             01
           </span>
-          <span className="text-xs font-extrabold text-zinc-900">Your finds</span>
-        </div>
+          <span className={`text-xs ${activeStep === 1 ? 'font-extrabold text-zinc-900' : 'font-semibold text-zinc-700'}`}>
+            Your finds
+          </span>
+        </button>
 
-        <div className="flex-1 h-[1px] bg-zinc-300 mx-2.5" />
+        <div className={`flex-1 h-[1.5px] mx-2.5 transition-colors ${activeStep >= 2 ? 'bg-[#C69635]/60' : 'bg-zinc-300'}`} />
 
-        <div className="flex items-center gap-2">
-          <span className="w-7 h-7 rounded-full bg-white border border-zinc-300 text-zinc-700 text-xs font-bold flex items-center justify-center">
+        <button
+          type="button"
+          onClick={() => {
+            setActiveStep(2);
+            step2Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }}
+          className="flex items-center gap-2 cursor-pointer"
+        >
+          <span
+            className={`w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center transition-colors ${
+              activeStep >= 2
+                ? 'bg-[#C69635] text-white shadow-2xs'
+                : 'bg-white border border-zinc-300 text-zinc-700'
+            }`}
+          >
             02
           </span>
-          <span className="text-xs font-medium text-zinc-600">What you loved</span>
-        </div>
+          <span className={`text-xs ${activeStep === 2 ? 'font-extrabold text-zinc-900' : 'font-medium text-zinc-600'}`}>
+            What you loved
+          </span>
+        </button>
 
-        <div className="flex-1 h-[1px] bg-zinc-300 mx-2.5" />
+        <div className={`flex-1 h-[1.5px] mx-2.5 transition-colors ${activeStep >= 3 ? 'bg-[#C69635]/60' : 'bg-zinc-300'}`} />
 
-        <div className="flex items-center gap-2">
-          <span className="w-7 h-7 rounded-full bg-white border border-zinc-300 text-zinc-700 text-xs font-bold flex items-center justify-center">
+        <button
+          type="button"
+          onClick={() => {
+            setActiveStep(3);
+            step3Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }}
+          className="flex items-center gap-2 cursor-pointer"
+        >
+          <span
+            className={`w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center transition-colors ${
+              activeStep >= 3
+                ? 'bg-[#C69635] text-white shadow-2xs'
+                : 'bg-white border border-zinc-300 text-zinc-700'
+            }`}
+          >
             03
           </span>
-          <span className="text-xs font-medium text-zinc-600">Your review</span>
-        </div>
+          <span className={`text-xs ${activeStep === 3 ? 'font-extrabold text-zinc-900' : 'font-medium text-zinc-600'}`}>
+            Your review
+          </span>
+        </button>
       </div>
 
       {/* STEP 1: What caught your eye? */}
-      <div>
+      <div ref={step1Ref} className="scroll-mt-20">
         <h3 className="text-[21px] font-extrabold text-zinc-900 tracking-tight leading-tight">
           What caught your eye?
         </h3>
@@ -324,7 +407,7 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
       </div>
 
       {/* STEP 2: What stood out? */}
-      <div className="mt-6">
+      <div ref={step2Ref} className="mt-6 scroll-mt-20">
         <h3 className="text-[20px] font-extrabold text-zinc-900 tracking-tight leading-tight">
           What stood out?
         </h3>
@@ -354,85 +437,98 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({ onShow
         </div>
       </div>
 
-      {/* STEP 3: YOUR REVIEW Box */}
-      <div className="mt-4 p-4 rounded-2xl bg-white border border-[#E6E2D8] shadow-xs">
-        <div className="flex items-center justify-between mb-2.5">
-          <div className="flex items-center gap-1.5">
-            <Pencil className="w-3.5 h-3.5 text-[#B88628]" />
-            <span className="text-xs font-extrabold tracking-widest text-[#B88628] uppercase">
-              YOUR REVIEW
-            </span>
+      {/* STEP 3: YOUR REVIEW Box + CTA */}
+      <div ref={step3Ref} className="scroll-mt-20">
+        <div
+          className={`mt-4 p-4 rounded-2xl bg-white border transition-all duration-300 shadow-xs ${
+            highlightReview
+              ? 'border-[#C89B3C] ring-2 ring-[#C89B3C]/35 shadow-md'
+              : 'border-[#E6E2D8]'
+          }`}
+        >
+          <div className="flex items-center justify-between mb-2.5">
+            <div className="flex items-center gap-1.5">
+              <Pencil className="w-3.5 h-3.5 text-[#B88628]" />
+              <span className="text-xs font-extrabold tracking-widest text-[#B88628] uppercase">
+                YOUR REVIEW
+              </span>
+            </div>
+            <div className="text-[#D4A338] text-sm tracking-wider">★★★★★</div>
           </div>
-          <div className="text-[#D4A338] text-sm tracking-wider">★★★★★</div>
-        </div>
 
-        {/* Editable Inner Box */}
-        <div className="p-3.5 rounded-xl border border-[#E5E2DC] bg-[#FCFBF9] relative">
-          <textarea
-            rows={2}
-            value={reviewText}
-            onChange={(e) => setReviewText(e.target.value)}
-            className="w-full bg-transparent text-[13.5px] text-zinc-800 font-medium leading-relaxed focus:outline-none resize-none"
-          />
-          {isTyping && (
-            <span className="inline-block w-0.5 h-4 bg-[#C89B3C] animate-pulse align-middle" />
-          )}
-        </div>
+          {/* Editable Inner Box */}
+          <div className="p-3.5 rounded-xl border border-[#E5E2DC] bg-[#FCFBF9] relative">
+            <textarea
+              rows={2}
+              value={reviewText}
+              onChange={(e) => setReviewText(e.target.value)}
+              onFocus={() => setActiveStep(3)}
+              className="w-full bg-transparent text-[13.5px] text-zinc-800 font-medium leading-relaxed focus:outline-none resize-none"
+            />
+            {isTyping && (
+              <span className="inline-block w-0.5 h-4 bg-[#C89B3C] animate-pulse align-middle" />
+            )}
+          </div>
 
-        {/* Bottom Controls: Try Another Version & Language Switch */}
-        <div className="mt-2.5 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => setVariationIdx((prev) => prev + 1)}
-            className="text-xs font-semibold text-zinc-600 hover:text-zinc-900 flex items-center gap-1.5 cursor-pointer active:scale-95 transition-all"
-          >
-            <RefreshCw className="w-3.5 h-3.5 text-zinc-500" />
-            <span>Try another version</span>
-          </button>
-
-          <div className="flex items-center gap-1 bg-zinc-100 p-0.5 rounded-lg border border-zinc-200 text-[10.5px] font-bold">
+          {/* Bottom Controls: Try Another Version & Language Switch */}
+          <div className="mt-2.5 flex items-center justify-between">
             <button
               type="button"
-              onClick={() => setLang('EN')}
-              className={`px-2 py-0.5 rounded-md cursor-pointer transition-all ${
-                lang === 'EN' ? 'bg-white text-zinc-900 shadow-2xs' : 'text-zinc-500 hover:text-zinc-800'
-              }`}
+              onClick={() => {
+                setVariationIdx((prev) => prev + 1);
+                setActiveStep(3);
+                pulseReviewCard();
+              }}
+              className="text-xs font-semibold text-zinc-600 hover:text-zinc-900 flex items-center gap-1.5 cursor-pointer active:scale-95 transition-all"
             >
-              EN
+              <RefreshCw className="w-3.5 h-3.5 text-zinc-500" />
+              <span>Try another version</span>
             </button>
-            <button
-              type="button"
-              onClick={() => setLang('HI')}
-              className={`px-2 py-0.5 rounded-md cursor-pointer transition-all ${
-                lang === 'HI' ? 'bg-white text-zinc-900 shadow-2xs' : 'text-zinc-500 hover:text-zinc-800'
-              }`}
-            >
-              Hinglish
-            </button>
+
+            <div className="flex items-center gap-1 bg-zinc-100 p-0.5 rounded-lg border border-zinc-200 text-[10.5px] font-bold">
+              <button
+                type="button"
+                onClick={() => setLang('EN')}
+                className={`px-2 py-0.5 rounded-md cursor-pointer transition-all ${
+                  lang === 'EN' ? 'bg-white text-zinc-900 shadow-2xs' : 'text-zinc-500 hover:text-zinc-800'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('HI')}
+                className={`px-2 py-0.5 rounded-md cursor-pointer transition-all ${
+                  lang === 'HI' ? 'bg-white text-zinc-900 shadow-2xs' : 'text-zinc-500 hover:text-zinc-800'
+                }`}
+              >
+                Hinglish
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* PRIMARY GOLD CTA BUTTON */}
+        <button
+          type="button"
+          onClick={handleCopyAndPost}
+          className="mt-3.5 w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-[#C2902E] via-[#D8A946] to-[#B98627] hover:brightness-105 active:scale-[0.99] text-white font-bold text-[15px] shadow-[0_8px_22px_-4px_rgba(194,144,46,0.55)] transition-all flex items-center justify-between cursor-pointer"
+        >
+          <div className="flex items-center">
+            <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-xs flex-shrink-0">
+              <svg className="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+              </svg>
+            </div>
+            <div className="h-5 w-[1px] bg-white/40 mx-3.5" />
+            <span className="tracking-tight">Copy &amp; open Google Reviews</span>
+          </div>
+          <ArrowRight className="w-5 h-5 text-white stroke-[2.2]" />
+        </button>
       </div>
-
-      {/* PRIMARY GOLD CTA BUTTON */}
-      <button
-        type="button"
-        onClick={handleCopyAndPost}
-        className="mt-3.5 w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-[#C2902E] via-[#D8A946] to-[#B98627] hover:brightness-105 active:scale-[0.99] text-white font-bold text-[15px] shadow-[0_8px_22px_-4px_rgba(194,144,46,0.55)] transition-all flex items-center justify-between cursor-pointer"
-      >
-        <div className="flex items-center">
-          <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-xs flex-shrink-0">
-            <svg className="w-4 h-4" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
-              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
-            </svg>
-          </div>
-          <div className="h-5 w-[1px] bg-white/35 mx-3" />
-          <span className="tracking-tight font-bold">Copy & open Google Reviews</span>
-        </div>
-        <ArrowRight className="w-5 h-5 text-white stroke-[2.2]" />
-      </button>
     </section>
   );
 };

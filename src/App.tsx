@@ -13,6 +13,10 @@ export const App: React.FC = () => {
   const [introComplete, setIntroComplete] = useState(false);
   const [replayKey, setReplayKey] = useState(0);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [externalCategory, setExternalCategory] = useState<{
+    id: string;
+    timestamp: number;
+  } | null>(null);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -35,6 +39,10 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleSelectDropCategory = (category: string) => {
+    setExternalCategory({ id: category, timestamp: Date.now() });
+  };
+
   return (
     <div className="min-h-screen bg-[#ECE8DF] text-[#141414] flex justify-center selection:bg-[#D5AF55] selection:text-black">
       {/* Leather Jacket Zipper Opening Overlay */}
@@ -53,14 +61,17 @@ export const App: React.FC = () => {
 
         {/* 3-Step Visual Review Studio */}
         <div id="review-studio">
-          <MinimalReviewStudio onShowToast={showToast} />
+          <MinimalReviewStudio
+            onShowToast={showToast}
+            externalSelectedCategory={externalCategory}
+          />
         </div>
 
         {/* Shop on WhatsApp (Sage Card + 2x2 Quick Inquiry Pills) */}
         <WhatsAppCatalogue />
 
-        {/* Featured In-Store Drops */}
-        <FeaturedDrops onSelectCategory={() => scrollToReviewStudio()} />
+        {/* Featured In-Store Drops (Swipeable + Sliding Motion) */}
+        <FeaturedDrops onSelectCategory={handleSelectDropCategory} />
 
         {/* Inside Vice City Store Gallery */}
         <StoreGallery />

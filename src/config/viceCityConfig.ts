@@ -29,16 +29,32 @@ export const FEATURED_DROPS: FeaturedDropItem[] = [
     title: 'Designer Puffer Jacket',
     subtitle: 'Warm winter fill & luxury finish',
     tag: 'MONOGRAM PUFFER',
-    image: 'assets/images/ViceCity/08_Brown_Monogram_Puffer.jpg',
-    category: 'Jackets & Puffers',
+    image: 'assets/images/ViceCity/drop_02_monogram_puffer.jpg',
+    category: 'jackets',
   },
   {
-    id: 'grey-distressed-zip',
-    title: 'Grey Distressed Jacket',
-    subtitle: 'Heavy zipper & acid wash tone',
-    tag: 'DISTRESSED ZIP',
-    image: 'assets/images/ViceCity/07_Grey_Distressed_Zip_Jacket.jpg',
-    category: 'Jackets & Puffers',
+    id: 'leather-clasp-jacket',
+    title: 'Clasp Leather Jacket',
+    subtitle: 'Heavy grain finish & metal clasps',
+    tag: 'CLASP LEATHER',
+    image: 'assets/images/ViceCity/drop_03_leather_clasp_jacket.jpg',
+    category: 'jackets',
+  },
+  {
+    id: 'magenta-graphic-sweatshirt',
+    title: 'Graphic Street Crewneck',
+    subtitle: 'Heavy fleece cotton & drop shoulder',
+    tag: 'GRAPHIC SWEAT',
+    image: 'assets/images/ViceCity/drop_01_magenta_sweatshirt.jpg',
+    category: 'girls',
+  },
+  {
+    id: 'espresso-latch-jacket',
+    title: 'Espresso Latch Jacket',
+    subtitle: 'Structured collar & silver latches',
+    tag: 'LUXURY LEATHER',
+    image: 'assets/images/ViceCity/drop_04_espresso_latch_jacket.jpg',
+    category: 'jackets',
   },
   {
     id: 'white-corduroy-overshirt',
@@ -46,15 +62,15 @@ export const FEATURED_DROPS: FeaturedDropItem[] = [
     subtitle: 'Textured overshirt for boys/girls',
     tag: 'CORDUROY',
     image: 'assets/images/ViceCity/05_White_Corduroy_Overshirt_Pink_Tee.jpg',
-    category: 'Tees & Sweatshirts',
+    category: 'tees',
   },
   {
-    id: 'pink-graphic-sweatshirt',
-    title: 'Graphic Street Crewneck',
-    subtitle: 'Heavy fleece cotton & drop shoulder',
-    tag: 'GRAPHIC SWEAT',
-    image: 'assets/images/ViceCity/04_Pink_Graphic_Sweatshirt.jpg',
-    category: 'Girls Wear',
+    id: 'grey-distressed-zip',
+    title: 'Grey Distressed Jacket',
+    subtitle: 'Heavy zipper & acid wash tone',
+    tag: 'DISTRESSED ZIP',
+    image: 'assets/images/ViceCity/07_Grey_Distressed_Zip_Jacket.jpg',
+    category: 'jackets',
   },
 ];
 
@@ -86,8 +102,8 @@ export const STORE_GALLERY: GalleryPhoto[] = [
     label: 'Streetwear Fit',
   },
   {
-    src: 'assets/images/ViceCity/04_Pink_Graphic_Sweatshirt.jpg',
-    alt: 'Pink Graphic Sweatshirt Drop',
+    src: 'assets/images/ViceCity/drop_01_magenta_sweatshirt.jpg',
+    alt: 'Magenta Graphic Sweatshirt Drop',
     label: 'Graphic Crewneck',
   },
   {
@@ -96,9 +112,9 @@ export const STORE_GALLERY: GalleryPhoto[] = [
     label: 'Corduroy Combo',
   },
   {
-    src: 'assets/images/ViceCity/06_Corduroy_Outfit_Closeup.jpg',
-    alt: 'Corduroy Texture & Stitching Closeup',
-    label: 'Fabric Detail',
+    src: 'assets/images/ViceCity/drop_02_monogram_puffer.jpg',
+    alt: 'Brown Monogram Puffer Jacket',
+    label: 'Monogram Puffer',
   },
   {
     src: 'assets/images/ViceCity/09_Store_Outerwear_Wall.jpg',
@@ -106,4 +122,3 @@ export const STORE_GALLERY: GalleryPhoto[] = [
     label: 'Surplus Wall',
   },
 ];
-
