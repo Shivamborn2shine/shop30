@@ -1,6 +1,6 @@
 node_modules/
 dist/
-assets/
+/assets/
 public/assets/images/ViceCity/*.png
 .DS_Store
 *.local
