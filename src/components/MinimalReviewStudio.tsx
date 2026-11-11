@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Check, Pencil, RefreshCw, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { STORE_CONFIG } from '../config/store.config';
+import { REVIEW_STANDOUT_PILLS, REVIEW_TEMPLATES } from '../data/reviewDatabase';
 
 interface MinimalReviewStudioProps {
   onShowToast: (msg: string, icon?: string) => void;
@@ -64,14 +65,7 @@ const VISUAL_CATEGORIES = [
   }
 ];
 
-const STANDOUT_PILLS = [
-  'Fabric quality',
-  'Great prices',
-  'Perfect fit',
-  'Latest styles',
-  'Helpful staff',
-  'Value for money'
-];
+const STANDOUT_PILLS = REVIEW_STANDOUT_PILLS;
 
 export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({
   onShowToast,
@@ -109,31 +103,28 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({
     seed: number
   ): string => {
     const pickedObjs = VISUAL_CATEGORIES.filter((c) => catIds.includes(c.id));
-    const itemPhrase =
-      pickedObjs.length === 1
-        ? `a great ${pickedObjs[0].shortName}`
-        : pickedObjs.length > 1
-        ? `${pickedObjs.map((p) => p.pluralName).join(' and ')}`
-        : 'great outfits';
+    const langDict = REVIEW_TEMPLATES[language];
 
     const v1 = vibes[0]?.toLowerCase() || 'fabric quality';
-    const v2 = vibes[1]?.toLowerCase() || 'the range of styles available';
+    const v2 = vibes[1]?.toLowerCase() || 'great prices';
 
-    if (language === 'HI') {
-      const hiTemplates = [
-        `Vice City (Indira Market) se ${pickedObjs.map((p) => p.pluralName).join(' & ') || 'clothes'} liya. Inka ${v1} aur ${v2} sach me best hai. Dehradun me genuine surplus shopping ke liye must-visit!`,
-        `Best clothing shop in Indira Market! ${pickedObjs.map((p) => p.pluralName).join(' and ') || 'Collection'} bohot fresh hai, khaaskar ${v1} & ${v2}. Highly recommended!`,
-        `Visited Vice City for ${pickedObjs.map((p) => p.pluralName).join(' & ') || 'streetwear'}. Loved the ${v1} and ${v2}. Indira Market me sabse sahi store!`
-      ];
-      return hiTemplates[seed % hiTemplates.length];
+    // If single category selected, pull from that category's rich template collection
+    if (pickedObjs.length === 1) {
+      const catKey = pickedObjs[0].id as 'jackets' | 'tees' | 'denim' | 'girls';
+      const categoryGenerators = langDict[catKey] || langDict.multi;
+      const generator = categoryGenerators[seed % categoryGenerators.length];
+      return generator(v1, v2);
     }
 
-    const enTemplates = [
-      `Found ${itemPhrase} at Vice City. Loved the ${v1} and ${v2}.`,
-      `Picked up ${itemPhrase} at Vice City in Indira Market. Impressed by the ${v1} and ${v2}!`,
-      `Great experience shopping at Vice City. Found ${itemPhrase} — the ${v1} and ${v2} really stood out.`
-    ];
-    return enTemplates[seed % enTemplates.length];
+    // If multiple categories selected, compose multi-category item phrasing
+    const itemPhrase =
+      pickedObjs.length > 1
+        ? pickedObjs.map((p) => p.pluralName).join(' & ')
+        : 'streetwear collection';
+
+    const multiGenerators = langDict.multi;
+    const generator = multiGenerators[seed % multiGenerators.length];
+    return generator(itemPhrase, v1, v2);
   };
 
   const animateText = (target: string) => {
@@ -524,7 +515,7 @@ export const MinimalReviewStudio: React.FC<MinimalReviewStudioProps> = ({
               </svg>
             </div>
             <div className="h-5 w-[1px] bg-white/40 mx-3.5" />
-            <span className="tracking-tight">Copy &amp; open Google Reviews</span>
+            <span className="tracking-tight font-bold">Copy &amp; open Google Reviews</span>
           </div>
           <ArrowRight className="w-5 h-5 text-white stroke-[2.2]" />
         </button>
